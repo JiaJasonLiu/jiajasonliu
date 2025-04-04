@@ -18,6 +18,8 @@
                 {/each}
             </div>
         {/if}
-        {@html data.post.content}
+        <div class="flex flex-col gap-4"> 
+            {@html data.post.content}
+        </div>
     </article>
 </div> 

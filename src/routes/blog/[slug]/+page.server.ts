@@ -10,6 +10,7 @@ export const load: PageServerLoad = async ({ params }) => {
         const filePath = path.join('src/content/blog', `${params.slug}.md`);
         const content = await fs.readFile(filePath, 'utf-8');
         const { data, content: markdownContent } = matter(content);
+        // TODO: change the date
 
         return {
             post: {
