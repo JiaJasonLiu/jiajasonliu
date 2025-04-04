@@ -194,7 +194,7 @@
         <article class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
           <h3 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Blog Post Title</h3>
           <p class="text-gray-600 dark:text-gray-300">Preview of your blog post content goes here.</p>
-          <a href="#" class="text-blue-600 hover:text-blue-700 mt-4 inline-block">Read more →</a>
+          <a href="/blog" class="text-blue-600 hover:text-blue-700 mt-4 inline-block">Read more →</a>
         </article>
         <!-- Add more blog posts as needed -->
       </div>

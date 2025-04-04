@@ -22,6 +22,9 @@
 	},
 	"dependencies": {
 		"@tailwindcss/vite": "^4.0.0",
-		"tailwindcss": "^4.0.0"
+		"tailwindcss": "^4.0.0",
+		"marked": "^12.0.0",
+		"gray-matter": "^4.0.3",
+		"glob": "^10.3.10"
 	}
 }
