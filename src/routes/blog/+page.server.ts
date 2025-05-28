@@ -9,8 +9,7 @@ import matter from 'gray-matter';
 export const load: PageServerLoad = async () => {
     try {
         // Find all markdown files in the blog directory
-        // TODO: fix this problem -> does not work in production
-        const files = await glob('static/blog_data/*.md');
+        const files = await glob('content/blog/*.md');
         
         const posts = await Promise.all(
             files.map(async (file) => {
