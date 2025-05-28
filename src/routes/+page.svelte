@@ -13,7 +13,7 @@
     }
   }
 </script>
-
+<nav>
 <header class="fixed top-0 left-0 right-0 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm z-50 border-b border-gray-200 dark:border-gray-700">
   <nav class="max-w-6xl mx-auto px-4 py-4">
     <div class="flex items-center justify-between">
@@ -24,7 +24,6 @@
         <a href="#blog" on:click={scrollToSection} class="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Blog</a>
         <a href="#contact" on:click={scrollToSection} class="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Contact</a>
       </div>
-      <!-- Mobile menu button -->
       <button class="md:hidden text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors" aria-label="Toggle menu">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
@@ -33,6 +32,7 @@
     </div>
   </nav>
 </header>
+</nav>
 
 <!-- Add padding to main to account for fixed header -->
 <main class="min-h-screen bg-white dark:bg-gray-900 pt-16">

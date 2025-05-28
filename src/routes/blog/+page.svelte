@@ -1,8 +1,10 @@
 <script lang="ts">
+    // import type { BlogPost } from '../../types/blog';
     
-    import type { BlogPost } from '../../types/blog';
+    // export let data: { posts: BlogPost[] };
+    let { data } = $props();
+    console.log(data);
 
-    export let data: { posts: BlogPost[] };
 </script>
 
 <div class="container mx-auto px-4 py-8">

@@ -1,7 +1,7 @@
 ---
 title: Hello World
 date: 2024-04-04
-excerpt: My first blog post using Svelte 5 and Markdown djwiadjawij
+excerpt: My first blog post using Svelte 5 and Markdown
 tags: [svelte, markdown, blog]
 ---
 
