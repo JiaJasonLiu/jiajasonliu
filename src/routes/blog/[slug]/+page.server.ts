@@ -7,7 +7,7 @@ import matter from 'gray-matter';
 
 export const load: PageServerLoad = async ({ params }) => {
     try {
-        const filePath = path.join('static/blog', `${params.slug}.md`);
+        const filePath = path.join('static/blog_data', `${params.slug}.md`);
         const content = await fs.readFile(filePath, 'utf-8');
         const { data, content: markdownContent } = matter(content);
         // TODO: change the date
