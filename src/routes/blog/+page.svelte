@@ -7,7 +7,7 @@
 
 </script>
 
-<div class="container mx-auto px-4 py-8">
+<div class="container max-w-6xl mx-auto">
     <h1 class="text-4xl font-bold mb-8">Blog Posts</h1>
     
     <div class="grid gap-6">
@@ -31,6 +31,7 @@
                         {/each}
                     </div>
                 {/if}
+                <!-- <a href="/blog" class="text-blue-600 hover:text-blue-700 mt-4 inline-block">Read more →</a> -->
             </article>
         {/each}
     </div>
