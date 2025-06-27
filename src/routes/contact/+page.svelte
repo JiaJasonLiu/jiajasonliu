@@ -1,18 +1,12 @@
-<script lang="ts">
-    let { data } = $props();
-    console.log(data);
-
-</script>
-
-
 <div class="container max-w-6xl mx-auto">
     <h1 class="text-4xl font-bold mb-8">Projects</h1>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Project Card 1 -->
         <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden group hover:shadow-xl transition-shadow duration-300">
         <div class="relative h-48 overflow-hidden">
             <!-- add a GIF -->
             <img 
-                src="/projects/rl_agents.png" 
+                src="/favicon.png" 
                 alt="RL" 
                 class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
             />
@@ -35,12 +29,13 @@
             <h3 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Reinforcement Highway Environment</h3>
             <p class="text-gray-600 dark:text-gray-300 mb-4">This is a Reinforcement Highway Environment Group Project to .</p>
             <div class="flex flex-wrap gap-2 mb-4">
-                <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-100 rounded-full text-sm">Python</span>
-                <span class="px-3 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-100 rounded-full text-sm">Gymnasium</span>
+            <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-100 rounded-full text-sm">React</span>
+            <span class="px-3 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-100 rounded-full text-sm">Node.js</span>
+            <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-100 rounded-full text-sm">MongoDB</span>
             </div>
             <div class="flex justify-between items-center">
-                <a href="/project/rl_agents" class="text-blue-600 hover:text-blue-700 font-medium" aria-label="View project demo">View Demo →</a>
-                <span class="text-sm text-gray-500 dark:text-gray-400">2024</span>
+            <!-- <a href="/project/RL" class="text-blue-600 hover:text-blue-700 font-medium" aria-label="View project demo">View Demo →</a> -->
+            <span class="text-sm text-gray-500 dark:text-gray-400">2024</span>
             </div>
         </div>
         </div>

@@ -41,9 +41,6 @@
     <div class="text-center">
       <h1 class="text-5xl font-bold mb-4 text-primary-200 dark:text-white">JiaJason</h1>
       <p class="text-xl text-gray-600 dark:text-gray-300 mb-8">Software Engineer</p>
-      <a href="#projects" on:click={scrollToSection} class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors" aria-label="View my projects section">
-        View My Work
-      </a>
     </div>
   </section>
 
