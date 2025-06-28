@@ -13,28 +13,7 @@
     }
   }
 </script>
-<!-- <nav>
-<header class="fixed top-0 left-0 right-0 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm z-50 border-b border-gray-200 dark:border-gray-700">
-  <nav class="max-w-6xl mx-auto px-4 py-4">
-    <div class="flex items-center justify-between">
-      <a href="#" on:click={scrollToSection} class="text-xl font-bold text-gray-900 dark:text-white">JiaJason</a>
-      <div class="hidden md:flex space-x-8">
-        <a href="#projects" on:click={scrollToSection} class="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Projects</a>
-        <a href="#experience" on:click={scrollToSection} class="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Experience</a>
-        <a href="#blog" on:click={scrollToSection} class="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Blog</a>
-        <a href="#contact" on:click={scrollToSection} class="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Contact</a>
-      </div>
-      <button class="md:hidden text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors" aria-label="Toggle menu">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-        </svg>
-      </button>
-    </div>
-  </nav>
-</header>
-</nav> -->
 
-<!-- Add padding to main to account for fixed header -->
 <main class="min-h-screen bg-white dark:bg-gray-900 ">
   <!-- Hero Section -->
   <section class="h-screen flex items-center justify-center px-4">
@@ -72,18 +51,20 @@
   </section>
 
   <!-- Contact Section -->
-  <section id="contact" class="py-20 px-4 bg-gray-50 dark:bg-gray-800">
+  <section id="contact" class="py-20 px-4 bg-white-50 dark:bg-gray-800">
     <div class="max-w-4xl mx-auto text-center">
       <h2 class="text-3xl font-bold mb-8 text-gray-900 dark:text-white">Get in Touch</h2>
       <p class="text-gray-600 dark:text-gray-300 mb-8">I'm always open to new opportunities and collaborations.</p>
       <div class="flex justify-center space-x-6">
-        <a href="mailto:your.email@example.com" class="text-gray-600 dark:text-gray-300 hover:text-blue-600" aria-label="Send me an email">
+        
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=jial7150@gmail.com" target="_blank"
+         class="text-gray-600 dark:text-gray-300 hover:text-purple-800" aria-label="Send me an email">
           Email
         </a>
-        <a href="https://github.com/JiaJasonLiu" class="text-gray-600 dark:text-gray-300 hover:text-blue-600" aria-label="Visit my GitHub profile">
+        <a href="https://github.com/JiaJasonLiu" class="text-gray-600 dark:text-gray-300 hover:text-purple-800" aria-label="Visit my GitHub profile">
           GitHub
         </a>
-        <a href="https://linkedin.com/in/yourusername" class="text-gray-600 dark:text-gray-300 hover:text-blue-600" aria-label="Visit my LinkedIn profile">
+        <a href="https://www.linkedin.com/in/jia-sheng-liu-9a8a23224/" class="text-gray-600 dark:text-gray-300 hover:text-purple-800" aria-label="Visit my LinkedIn profile">
           LinkedIn
         </a>
       </div>

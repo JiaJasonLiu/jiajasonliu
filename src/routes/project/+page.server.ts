@@ -7,6 +7,7 @@ export function load() {
 			title: post.title,
 			synopsis: post.synopsis,
 			date: post.date,
+			content: post.content,
 
 		}))
 	};

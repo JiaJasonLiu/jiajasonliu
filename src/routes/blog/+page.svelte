@@ -31,7 +31,6 @@
                         {/each}
                     </div>
                 {/if}
-                <!-- <a href="/blog" class="text-blue-600 hover:text-blue-700 mt-4 inline-block">Read more →</a> -->
             </article>
         {/each}
     </div>
