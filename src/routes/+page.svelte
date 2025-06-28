@@ -1,25 +1,22 @@
-<script>
-  // Add any necessary imports or reactive variables here
-  // Add smooth scrolling function
-  /**
-   * @param {{ preventDefault: () => void; currentTarget: { getAttribute: (arg0: string) => any; }; }} event
-   */
-  function scrollToSection(event) {
-    event.preventDefault();
-    const targetId = event.currentTarget.getAttribute('href');
-    const targetElement = document.querySelector(targetId);
-    if (targetElement) {
-      targetElement.scrollIntoView({ behavior: 'smooth' });
-    }
-  }
-</script>
-
 <main class="min-h-screen bg-white dark:bg-gray-900 ">
   <!-- Hero Section -->
-  <section class="h-screen flex items-center justify-center px-4">
-    <div class="text-center">
-      <h1 class="text-5xl font-bold mb-4 text-primary-200 dark:text-white">JiaJason</h1>
-      <p class="text-xl text-gray-600 dark:text-gray-300 mb-8">Software Engineer</p>
+  <section class="h-screen grid grid-cols-3 gap-4">
+    <div class="flex flex-col items-center justify-center">
+      <h2 class="text-2xl text-gray-600 dark:text-gray-300 mb-8">MOTTO: Always have a Plan Z</h2>
+      <p class="text-m text-gray-500 text-center px-15">
+        Have a dream to pursue is the most fulfilling aspect of life I can imagine. 
+        Hurdles with arise. Challenges will be faced. Various Backup plans will be made.
+        Nonetheless, I will continue to strive to solve problems and achieve my goals in my own way.
+      </p>
+    </div>
+    <div class="flex flex-col mt-24 items-center text-center">
+      <h1 class="text-5xl font-mono text-primary-200 dark:text-white mb-20">Jason Liu</h1>
+      <img src="/jiajason.png" alt="JiaJason's Pic" class="right-0 rounded-full w-auto h-auto mx-auto shadow-2xl">
+    </div>
+    <div class="flex flex-col items-center justify-center">
+      <h2 class="text-2xl text-gray-600 dark:text-gray-300 mb-8">Software Engineer</h2>
+      <p class="text-xl text-gray-600 dark:text-gray-300 mb-8">Frontend</p>
+      <p class="text-xl text-gray-600 dark:text-gray-300 mb-8">Backend</p>
     </div>
   </section>
 

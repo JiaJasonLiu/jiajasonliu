@@ -10,7 +10,7 @@
       <a href="/" class="text-2xl font-mono text-gray-900 dark:text-white hover:text-purple-800">JiaJason</a>
       <div class="flex space-x-8">
         <a href="/project" class="text-xl font-mono dark:text-gray-300 hover:text-purple-800 dark:hover:text-blue-400 transition-colors">Projects</a>
-        <a href="/blog" class="text-xl font-mono dark:text-gray-300 hover:text-purple-800 dark:hover:text-blue-400 transition-colors">Blog</a>
+        <a href="/blog" class="text-xl font-mono dark:text-gray-300 hover:text-purple-800 dark:hover:text-blue-400 transition-colors">Blogs</a>
       </div>
       <!-- <button class="md:hidden text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors" aria-label="Toggle menu">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -22,5 +22,8 @@
 </header>
 </nav>
 
-{@render children()}
+<main>
+
+  {@render children()}
+</main>
 
