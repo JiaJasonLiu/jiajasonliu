@@ -4,7 +4,10 @@ export function load() {
 	return {
 		posts: posts.map((post) => ({
 			slug: post.slug,
-			title: post.title
+			title: post.title,
+			synopsis: post.synopsis,
+			date: post.date,
+
 		}))
 	};
 }

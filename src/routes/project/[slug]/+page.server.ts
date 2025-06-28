@@ -3,6 +3,8 @@ import { posts } from '../data.js';
 import fs from 'fs';
 import path from 'path';
 
+// TODO: create a function to convert the headings into tailwind -> for ease
+
 export function load({ params }) {
 	const post = posts.find((post) => post.slug === params.slug);
 	const filePath = path.resolve('static/projects/rl_agents.html');
