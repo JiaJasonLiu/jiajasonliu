@@ -2,27 +2,27 @@
   <!-- Hero Section -->
   <section class="h-screen grid grid-cols-3 gap-4">
     <div class="mt-48 flex flex-col items-center">
-      <h2 class="text-2xl text-center font-bold text-gray-600 dark:text-gray-300 mb-8">MOTTO: Always have a Plan Z</h2>
+      <h2 class="text-2xl text-center font-bold text-gray-600 dark:text-gray-300 mb-6">MOTTO: Always have a Plan Z</h2>
       <p class="text-m text-gray-500 text-center px-15">
         Have a dream to pursue is the most fulfilling aspect of life I can imagine. 
         Hurdles with arise. Challenges will be faced. Various Backup plans will be made.
         Nonetheless, I will continue to strive to solve problems and achieve my goals in my own way.
       </p>
-      <p class="text-m mt-8 text-gray-500 text-center px-15">
+      <p class="text-m mt-6 text-gray-500 text-center px-15">
         If you share the same passion for problem-solving, innovation, and outlook
       </p>
-      <button class="mt-6 px-6 py-3 bg-white-600 text-black border font-semibold rounded-xl hover:text-white hover:bg-purple-700 transition duration-300">
+      <button class="mt-6 px-6 py-3 bg-white-600 text-black border font-semibold rounded-xl hover:text-white hover:bg-purple-800 transition duration-300">
         Let Us Connect!
       </button>
     </div>
     <div class="flex flex-col mt-8 items-center text-center">
-      <h1 class="text-5xl font-mono text-primary-200 dark:text-white mb-20">Jason Liu</h1>
+      <h1 class="text-5xl font-mono text-primary-200 dark:text-white mb-14">Jason Liu</h1>
       <img src="/jiajason.png" alt="JiaJason's Pic" class="right-0 rounded-full w-auto h-auto mx-auto shadow-2xl">
     </div>
     <div class="mt-48">
       <div class="flex flex-col items-center justify-center">
-      <h2 class="text-2xl mb-3 text-center font-bold text-gray-600 dark:text-gray-300">Roles</h2>
-      <div class="flex flex-col mb-8 max-w-xs items-center text-center">
+      <h2 class="text-2xl mb-5 text-center font-bold text-gray-600 dark:text-gray-300">Roles</h2>
+      <div class="flex flex-col mb-6 max-w-xs items-center text-center">
         <div class="flex items-center">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
             <path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 0 1-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0 1 15 18.257V17.25m6-12V15a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 15V5.25m18 0A2.25 2.25 0 0 0 18.75 3H5.25A2.25 2.25 0 0 0 3 5.25m18 0V12a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 12V5.25" />
@@ -33,7 +33,7 @@
           Responsive, accessible, and polished UIs built with modern frameworks like React, Tailwind CSS, and more.
         </p>
       </div>
-      <div class="flex flex-col mb-8 max-w-xs items-center text-center">
+      <div class="flex flex-col mb-6 max-w-xs items-center text-center">
         <div class="flex items-center">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
             <path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 0 1-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0 1 15 18.257V17.25m6-12V15a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 15V5.25m18 0A2.25 2.25 0 0 0 18.75 3H5.25A2.25 2.25 0 0 0 3 5.25m18 0V12a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 12V5.25" />
@@ -44,7 +44,7 @@
           Scalable APIs, databases, and core logic using Node.js, Express, and PostgreSQL.
         </p>
       </div>
-      <div class="flex flex-col mb-8 max-w-xs items-center text-center">
+      <div class="flex flex-col mb-6 max-w-xs items-center text-center">
         <div class="flex items-center">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
             <path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 0 1-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0 1 15 18.257V17.25m6-12V15a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 15V5.25m18 0A2.25 2.25 0 0 0 18.75 3H5.25A2.25 2.25 0 0 0 3 5.25m18 0V12a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 12V5.25" />
