@@ -7,7 +7,7 @@
 <div class="container max-w-6xl mx-auto">
     <h1 class="text-4xl font-bold mb-8">Projects</h1>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden group hover:shadow-xl transition-shadow duration-300">
+        <div class="bg-white dark:bg-gray-800  shadow-gray-400 rounded-lg shadow-lg overflow-hidden group hover:shadow-xl transition-shadow duration-300">
             <div class="relative h-48 overflow-hidden">
                 <img
                     src="/project/rl_agents.gif" 

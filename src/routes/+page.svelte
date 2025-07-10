@@ -1,3 +1,14 @@
+<script>
+  console.log("dwjaidjwai")
+   /**
+   * @param {{ preventDefault: () => void; currentTarget: { getAttribute: (arg0: string) => any; }; }} event
+   */
+  function scrollToSection(event) {
+    event.preventDefault();
+    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+  }
+
+</script>
 <main class="min-h-screen bg-white dark:bg-gray-900 ">
   <!-- Hero Section -->
   <section class="h-screen grid grid-cols-3 gap-4">
@@ -11,7 +22,7 @@
       <p class="text-m mt-6 text-gray-500 text-center px-15">
         If you share the same passion for problem-solving, innovation, and outlook
       </p>
-      <button class="mt-6 px-6 py-3 bg-white-600 text-black border font-semibold rounded-xl hover:text-white hover:bg-purple-800 transition duration-300">
+      <button on:click={scrollToSection} aria-label="Let us Connect" class="mt-6 px-6 py-3 bg-white-600 text-black border font-semibold rounded-xl hover:text-white hover:bg-purple-800 transition duration-300">
         Let Us Connect!
       </button>
     </div>
@@ -19,17 +30,17 @@
       <h1 class="text-5xl font-mono text-primary-200 dark:text-white mb-14">Jason Liu</h1>
       <img src="/jiajason.png" alt="JiaJason's Pic" class="right-0 rounded-full w-auto h-auto mx-auto shadow-2xl">
     </div>
-    <div class="mt-48">
+    <div class="mt-43">
       <div class="flex flex-col items-center justify-center">
-      <h2 class="text-2xl mb-5 text-center font-bold text-gray-600 dark:text-gray-300">Roles</h2>
+      <h2 class="text-2xl mb-2 text-center font-bold text-gray-600 dark:text-gray-300">Roles</h2>
       <div class="flex flex-col mb-6 max-w-xs items-center text-center">
         <div class="flex items-center">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
             <path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 0 1-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0 1 15 18.257V17.25m6-12V15a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 15V5.25m18 0A2.25 2.25 0 0 0 18.75 3H5.25A2.25 2.25 0 0 0 3 5.25m18 0V12a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 12V5.25" />
           </svg>
-          <p class="text-xl ml-1 text-gray-600 dark:text-gray-300">Web Development</p>
+          <p class="text-xl ml-1 text-gray-700 dark:text-gray-300">Web Development</p>
         </div>
-        <p class="mt-2 text-sm text-gray-600">
+        <p class="mt-2 text-sm text-gray-500">
           Responsive, accessible, and polished UIs built with modern frameworks like React, Tailwind CSS, and more.
         </p>
       </div>
@@ -38,23 +49,30 @@
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
             <path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 0 1-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0 1 15 18.257V17.25m6-12V15a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 15V5.25m18 0A2.25 2.25 0 0 0 18.75 3H5.25A2.25 2.25 0 0 0 3 5.25m18 0V12a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 12V5.25" />
           </svg>
-          <p class="text-xl ml-1 text-gray-600 dark:text-gray-300">Backend & Infrastructure</p>
+          <p class="text-xl ml-1 text-gray-700 dark:text-gray-300">Backend & Infrastructure</p>
         </div>
-        <p class="mt-2 text-sm text-gray-600">
+        <p class="mt-2 text-sm text-gray-500">
           Scalable APIs, databases, and core logic using Node.js, Express, and PostgreSQL.
         </p>
       </div>
-      <div class="flex flex-col mb-6 max-w-xs items-center text-center">
+      <!-- <div class="flex flex-col mb-6 max-w-xs items-center text-center">
         <div class="flex items-center">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
             <path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 0 1-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0 1 15 18.257V17.25m6-12V15a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 15V5.25m18 0A2.25 2.25 0 0 0 18.75 3H5.25A2.25 2.25 0 0 0 3 5.25m18 0V12a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 12V5.25" />
           </svg>
-          <p class="text-xl ml-1 text-gray-600 dark:text-gray-300">Solo Entrepreneur</p>
+          <p class="text-xl ml-1 text-gray-700 dark:text-gray-300">Solo Entrepreneur</p>
         </div>
-        <p class="mt-2 text-sm text-gray-600">
+        <p class="mt-2 text-sm text-gray-500">
           From idea to launch — I handle product, code, and growth as a one-person startup.
         </p>
-      </div>
+      </div> -->
+      <p class="text-m text-gray-500 text-center px-15">
+        If you want to learn more about my roles and experiences, I have created a personal handbook about all the lessons I have learned throughout the years.
+        They are contained in this up-to-date blog named
+        <a class="text-purple-800" href="/blog/jshandbook">
+          JSHandBook
+        </a>
+      </p>
       </div>
     </div>
   </section>
@@ -107,7 +125,3 @@
     </div>
   </section>
 </main>
-
-<style>
-  /* Add any component-specific styles here */
-</style>

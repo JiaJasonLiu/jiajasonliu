@@ -1,14 +1,20 @@
 <script lang="ts">
     let { data } = $props();
+    const posts = data.resultsPosts;
 </script>
 
 <div class="container max-w-6xl mx-auto">
     <h1 class="text-4xl font-bold mb-8">Blog Posts</h1>
     <div class="grid gap-6">
-        {#each data.posts as post}
-            <article class="p-6 bg-white rounded-lg shadow-md">
-                <h2 class="text-2xl font-semibold mb-2">
-                    <a href="/blog/{post.slug}" class="hover:text-purple-800">
+        {#each posts as post}
+            <article class="p-6 bg-white rounded-lg shadow-lg shadow-gray-400">
+                <h2 class="text-2xl font-semibold mb-2 hover:text-purple-800">
+                    <a class="flex items-center" href="/blog/{post.slug}">
+                        {#if post.star}
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6 motion-safe:animate-pulse">
+                            <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clip-rule="evenodd" />
+                        </svg>
+                        {/if}
                         {post.title}
                     </a>
                 </h2>
