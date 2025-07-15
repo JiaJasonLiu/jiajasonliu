@@ -1,21 +1,20 @@
 export const posts = [
 	{
 		slug: 'welcome',
-		title: 'Welcome to the Aperture Science computer-aided enrichment center',
+		title: 'Welcome to my first blog post',
+		synopsis: 'This is blog for my personal website.',
+		date: 'JUN 28, 2025',
 		content:
-			'<p>We hope your brief detention in the relaxation vault has been a pleasant one.</p><p>Your specimen has been processed and we are now ready to begin the test proper.</p>'
+		'<p>We hope your brief detention in the relaxation vault has been a pleasant one.</p><p>Your specimen has been processed and we are now ready to begin the test proper.</p>'
+	},
+	{
+		slug: 'jshandbook',
+		title: 'JSHandbook',
+		synopsis: 'Everything Jason has learned throughout the years is contained here.',
+		date: 'JUL 03, 2023',
+		star: true,
+		content:
+		'<p>The Handbook is currently being created...</p>'
 	},
 
-	{
-		slug: 'safety',
-		title: 'Safety notice',
-		content:
-			'<p>While safety is one of many Enrichment Center Goals, the Aperture Science High Energy Pellet, seen to the left of the chamber, can and has caused permanent disabilities, such as vaporization. Please be careful.</p>'
-	},
-
-	{
-		slug: 'cake',
-		title: 'This was a triumph',
-		content: "<p>I'm making a note here: HUGE SUCCESS.</p>"
-	}
 ];

@@ -15,16 +15,20 @@ function convertToTailwind(html: string): string {
 		.replace(/<ol>/g, '<ol class="list-decimal pl-5 mb-4">');
 }
 
-export function load({ params }) {
-	const post = posts.find((post) => post.slug === params.slug);
-	const filePath = path.resolve('static/project/rl_agents.html');
-	const htmlContent = fs.readFileSync(filePath, 'utf-8');
-	
-	if (!post) error(404);
+export async function load({ params}) {
+	try {
+		let post = posts.find((post) => post.slug === params.slug);
 
-	post.content = convertToTailwind(htmlContent);
+		if (!post) {
+			throw error(404, 'Post not found');
+		}
+		const file = await import(`../../assets/rl_agents.html?raw`)
+		.then(m => m.default);
+		post.content = convertToTailwind(file);
+		return post
 
-	return {
-		post
-	};
+	} catch (err) {
+		console.error('Error loading HTML file:', err);
+		throw error(500, 'Failed to load HTML file');
+	}
 }
