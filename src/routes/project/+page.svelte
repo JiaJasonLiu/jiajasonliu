@@ -10,7 +10,7 @@
         <div class="bg-white dark:bg-gray-800  shadow-gray-400 rounded-lg shadow-lg overflow-hidden group hover:shadow-xl transition-shadow duration-300">
             <div class="relative h-48 overflow-hidden">
                 <img
-                    src="/project/rl_agents.gif" 
+                    src="/projects/rl_agents.gif" 
                     alt="RL" 
                     class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
                 />

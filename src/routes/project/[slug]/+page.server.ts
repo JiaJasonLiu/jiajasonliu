@@ -15,12 +15,23 @@ function convertToTailwind(html: string): string {
 		.replace(/<ol>/g, '<ol class="list-decimal pl-5 mb-4">');
 }
 
-export function load({ params }) {
-	const post = posts.find((post) => post.slug === params.slug);
-	const filePath = path.resolve('static/project/rl_agents.html');
-	const htmlContent = fs.readFileSync(filePath, 'utf-8');
-	
-	if (!post) error(404);
+export async function load({ params, fetch: eventFetch }) {
+	let post = posts.find((post) => post.slug === params.slug);
+
+	if (!post) {
+		throw error(404, 'Post not found');
+	}
+
+	// Construct public URL to HTML file (assuming slug maps directly to filename)
+	const htmlFileUrl = `/projects/rl_agents.html`;
+
+	const res = await eventFetch(htmlFileUrl);
+
+	if (!res.ok) {
+		throw error(500, `Failed to load HTML content: ${res.status}`);
+	}
+	// console.log('HTML File URL:', res);
+	const htmlContent = await res.text();
 
 	post.content = convertToTailwind(htmlContent);
 
