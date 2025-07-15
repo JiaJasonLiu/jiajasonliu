@@ -25,8 +25,10 @@ export async function load({ params}) {
 		const file = await import(`../../assets/rl_agents.html?raw`)
 		.then(m => m.default);
 		post.content = convertToTailwind(file);
-		return post
-
+		// console.log('Post content loaded:', post);
+		return {
+			post
+		};
 	} catch (err) {
 		console.error('Error loading HTML file:', err);
 		throw error(500, 'Failed to load HTML file');
