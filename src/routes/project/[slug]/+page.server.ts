@@ -23,17 +23,26 @@ export async function load({ params, fetch: eventFetch }) {
 	}
 
 	// Construct public URL to HTML file (assuming slug maps directly to filename)
-	const htmlFileUrl = `/projects/rl_agents.html`;
+	// const htmlFileUrl = `src/assets/rl_agents.html`;
 
-	const res = await eventFetch(htmlFileUrl);
-
-	if (!res.ok) {
-		throw error(500, `Failed to load HTML content: ${res.status}`);
+	// const res = await eventFetch(htmlFileUrl);
+	try {
+		const file = await import(`../../assets/rl_agents.html?raw`)
+		.then(m => m.default);
+		console.log('HTML File Content:', file);
+		post.content = convertToTailwind(file);
+	} catch (err) {
+		console.error('Error loading HTML file:', err);
+		throw error(500, 'Failed to load HTML file');
 	}
-	// console.log('HTML File URL:', res);
-	const htmlContent = await res.text();
 
-	post.content = convertToTailwind(htmlContent);
+	// if (!res.ok) {
+	// 	throw error(500, `Failed to load HTML content: ${res.status}`);
+	// }
+	// // console.log('HTML File URL:', res);
+	// const htmlContent = await res.text();
+
+	// post.content = convertToTailwind(htmlContent);
 
 	return {
 		post
