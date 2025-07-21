@@ -22,7 +22,7 @@ export async function load({ params}) {
 		if (!post) {
 			throw error(404, 'Post not found');
 		}
-		const file = await import(`../../assets/rl_agents.html?raw`)
+		const file = await import(`../../assets/project/rl_agents.html?raw`)
 		.then(m => m.default);
 		post.content = convertToTailwind(file);
 		// console.log('Post content loaded:', post);
