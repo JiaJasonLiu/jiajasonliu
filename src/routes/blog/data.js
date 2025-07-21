@@ -14,7 +14,7 @@ export const posts = [
 		date: 'JUL 03, 2023',
 		star: true,
 		content:
-		'<p>The Handbook is currently being created...</p>'
+		''
 	},
 
 ];

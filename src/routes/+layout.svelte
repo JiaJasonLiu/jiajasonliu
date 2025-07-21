@@ -3,7 +3,7 @@
   import "../app.css";
 
 </script>
-<nav class="mb-20">
+<nav>
 <header class="fixed top-0 left-0 right-0 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm z-50 border-b border-gray-200 dark:border-gray-700">
   <nav class="max-w-7xl mx-auto p-4">
     <div class="flex items-center justify-between">
@@ -17,7 +17,7 @@
 </header>
 </nav>
 
-<main>
+<main class="mt-24">
   <div class="container mx-auto px-4">
   {@render children()}
   </div>

@@ -1,16 +1,17 @@
 <script lang="ts">
     let { data } = $props();
-    const post = data.posts[0];
+    const posts = data.posts;
 </script>
 
 
 <div class="container max-w-6xl mx-auto">
     <h1 class="text-4xl font-bold mb-8">Projects</h1>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {#each posts as post}
         <div class="bg-white dark:bg-gray-800  shadow-gray-400 rounded-lg shadow-lg overflow-hidden group hover:shadow-xl transition-shadow duration-300">
             <div class="relative h-48 overflow-hidden">
                 <img
-                    src="/projects/rl_agents.gif" 
+                    src="{post.image}" 
                     alt="RL" 
                     class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
                 />
@@ -32,12 +33,18 @@
             <div class="flex flex-col p-6 gap-2">
                 <a href='project/{post.slug}' class="text-xl hover:text-purple-800 font-medium dark:text-white">{post.title}</a>
                 <p class="text-gray-600 dark:text-gray-300 mb-1">{post.synopsis}</p>
-                <div class="flex flex-wrap gap-2 mb-1">
-                    <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-100 rounded-full text-sm">Python</span>
-                    <span class="px-3 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-100 rounded-full text-sm">Gymnasium</span>
+                {#if post.tags}
+                <div class="flex gap-2 overflow-auto">
+                    {#each post.tags as tag}
+                    <span class="px-2 py-1 bg-gray-100 rounded-full text-sm sm:text-nowrap overflow-hidden">
+                        {tag}
+                    </span>
+                    {/each}
                 </div>
+                {/if}
                 <time class="block text-l text-gray-500 dark:text-gray-400 uppercase">Created in {post.date}</time>
             </div>
         </div>
+        {/each}
     </div>
 </div>  

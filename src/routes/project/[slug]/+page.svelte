@@ -16,13 +16,13 @@
         {#if post.tags}
         <div class="mb-4 flex gap-2">
             {#each post.tags as tag}
-            <span class="px-2 py-1 bg-gray-100 rounded-full text-sm">
+            <span class="px-2 py-1 bg-white border border-gray-400 select-none rounded-full text-sm">
                 {tag}
             </span>
             {/each}
         </div>
         {/if}
-        <time class="block text-l text-gray-800 mb-4">{post.date}</time>
+        <time class="block text-l text-gray-800 mb-4">CREATED IN {post.date}</time>
         <div class="flex flex-col gap-4"> 
             {@html post.content}
         </div>
