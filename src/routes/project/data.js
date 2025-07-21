@@ -7,6 +7,6 @@ export const posts = [
 		tags: ['Python', 'Gymnasium', 'Reinforcement Learning', 'Machine Learning', 'AI'],
 		image: '/projects/rl_agents.png',
 		content:
-			'<p>We hope your brief detention in the relaxation vault has been a pleasant one. Your specimen has been processed and we are now ready to begin the test proper.</p>'
+			''
 	},
 ];
