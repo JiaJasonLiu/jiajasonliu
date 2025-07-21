@@ -8,6 +8,7 @@ export function load() {
 			synopsis: post.synopsis,
 			date: post.date,
 			image: post.image,
+			link: post.link,
 			tags: post.tags,
 			content: post.content,
 

@@ -7,6 +7,7 @@ export const posts = [
 		tags: ['Python', 'Gymnasium', 'RL'],
 		image: '/projects/rl_agents.gif',
 		star: false,
+		link: 'https://github.com/JiaJasonLiu/RL_Highway',
 		content:
 			''
 	},

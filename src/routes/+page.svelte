@@ -17,15 +17,15 @@
     <div class="max-w-7xl mx-auto flex py-8 lgjustify-between gap-15 items-center">
     <div class="flex flex-col items-start">
       <h2 class="text-4xl font-bold text-gray-900 dark:text-gray-300">Always have a Plan Z</h2>
-      <h3 class="mt-5 text-lg text-gray-500">
+      <h3 class="mt-5 text-lg text-gray-500 dark:text-gray-400">
         Have a dream to pursue is the most fulfilling aspect of life I can imagine. 
         Hurdles with arise. Challenges will be faced. Various Backup plans will be made.
         Nonetheless, I will continue to strive to solve problems and achieve my goals in my own way.
       </h3>
-      <p class="mt-5 text-base text-gray-500">
+      <p class="mt-5 text-base text-gray-500 dark:text-gray-400">
         If you share the same passion for problem-solving, innovation, and outlook
       </p>
-      <button on:click={scrollToSection} aria-label="Let us Connect" class="mt-6 px-6 py-3 bg-white-600 text-black border font-semibold rounded-xl hover:text-white hover:bg-purple-800 transition duration-300">
+      <button on:click={scrollToSection} aria-label="Let us Connect" class="mt-6 px-6 py-3 bg-white-600 text-black dark:text-gray-100 border dark: font-semibold rounded-xl hover:text-white hover:bg-purple-800 transition duration-300">
         Let Us Connect!
       </button>
     </div>
@@ -36,7 +36,7 @@
     <div class="max-w-7xl mx-auto">
       <span class="mb-4 gap-y-2 flex flex-col items-start">
         <h2 class="text-3xl font-bold text-gray-900 dark:text-white">Roles</h2>
-        <p class="text-m text-gray-500">
+        <p class="text-m text-gray-500 dark:text-gray-300">
           If you want to learn more about my roles and experiences, I have created a personal handbook about all the lessons I have learned throughout the years.
           They are contained in this up-to-date blog named
           <a target="_blank" class="text-purple-800" href="/blog/jshandbook">
@@ -52,7 +52,7 @@
           </svg>
           <p class="text-xl ml-1 text-gray-700 dark:text-gray-300">Frontend Developer</p>
           </div>
-          <p class="mt-2 text-sm text-gray-500">
+          <p class="mt-2 text-sm text-gray-500 dark:text-gray-300">
             Responsive, accessible, and polished UIs built with modern frameworks like React, Tailwind CSS, and more.
           </p>
         </div>
@@ -63,7 +63,7 @@
           </svg>
           <p class="text-xl ml-1 text-gray-700 dark:text-gray-300">Backend & Infrastructure Developer</p>
           </div>
-          <p class="mt-2 text-sm text-gray-500">
+          <p class="mt-2 text-sm text-gray-500 dark:text-gray-300">
             Scalable APIs, databases, and core logic using Node.js, Express, and PostgreSQL.
           </p>
         </div>
@@ -74,7 +74,7 @@
           </svg>
           <p class="text-xl ml-1 text-gray-700 dark:text-gray-300">Solo Entrepreneur</p>
           </div>
-          <p class="mt-2 text-sm text-gray-500">
+          <p class="mt-2 text-sm text-gray-500 dark:text-gray-300">
             From idea to launch — I handle product, code, and growth as a one-person startup.
           </p>
         </div>

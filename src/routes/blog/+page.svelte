@@ -4,11 +4,11 @@
 </script>
 
 <div class="container max-w-6xl mx-auto">
-    <h1 class="text-4xl font-bold mb-8">Blog Posts</h1>
+    <h1 class="text-4xl font-bold mb-8 dark:text-gray-300">Blog Posts</h1>
     <div class="grid gap-6">
         {#each posts as post}
-            <article class="p-6 bg-white rounded-lg shadow-lg shadow-gray-400">
-                <h2 class="text-2xl font-semibold mb-2 hover:text-purple-800">
+            <article class="p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg shadow-gray-400">
+                <h2 class="text-2xl font-semibold mb-2 hover:text-purple-800 dark:text-gray-300">
                     <a class="flex items-center" href="/blog/{post.slug}">
                         {#if post.star}
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6 motion-safe:animate-pulse">
@@ -19,9 +19,9 @@
                     </a>
                 </h2>
                 {#if post.synopsis}
-                <p class="text-gray-700 mb-4">{post.synopsis}</p>
+                <p class="text-gray-700 dark:text-gray-300 mb-4">{post.synopsis}</p>
                 {/if}
-                <time class="text-gray-600 block uppercase">Created in {post.date}</time>
+                <time class="text-gray-600  dark:text-gray-300 block uppercase">Created in {post.date}</time>
             </article>
         {/each}
     </div>
