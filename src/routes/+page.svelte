@@ -48,34 +48,35 @@
         <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg">
           <div class="flex items-center">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+          </svg>
+
+          <p class="text-xl ml-1 text-gray-700 dark:text-gray-300">Solo Entrepreneur</p>
+          </div>
+          <p class="mt-2 text-sm text-gray-500 dark:text-gray-300">
+            From idea to launch — I handle product, code, and growth as a one-person startup. I have various problems I want to tackle, but not enough time.
+          </p>
+        </div>
+        <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg">
+          <div class="flex items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
             <path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 0 1-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0 1 15 18.257V17.25m6-12V15a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 15V5.25m18 0A2.25 2.25 0 0 0 18.75 3H5.25A2.25 2.25 0 0 0 3 5.25m18 0V12a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 12V5.25" />
           </svg>
           <p class="text-xl ml-1 text-gray-700 dark:text-gray-300">Frontend Developer</p>
           </div>
           <p class="mt-2 text-sm text-gray-500 dark:text-gray-300">
-            Responsive, accessible, and polished UIs built with modern frameworks like React, Tailwind CSS, and more.
+            Responsive, accessible, and polished UIs built with modern frameworks like React, Tailwind CSS, and more. 
           </p>
         </div>
         <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg">
           <div class="flex items-center">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 0 1-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0 1 15 18.257V17.25m6-12V15a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 15V5.25m18 0A2.25 2.25 0 0 0 18.75 3H5.25A2.25 2.25 0 0 0 3 5.25m18 0V12a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 12V5.25" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M14.25 9.75 16.5 12l-2.25 2.25m-4.5 0L7.5 12l2.25-2.25M6 20.25h12A2.25 2.25 0 0 0 20.25 18V6A2.25 2.25 0 0 0 18 3.75H6A2.25 2.25 0 0 0 3.75 6v12A2.25 2.25 0 0 0 6 20.25Z" />
           </svg>
           <p class="text-xl ml-1 text-gray-700 dark:text-gray-300">Backend & Infrastructure Developer</p>
           </div>
           <p class="mt-2 text-sm text-gray-500 dark:text-gray-300">
             Scalable APIs, databases, and core logic using Node.js, Express, and PostgreSQL.
-          </p>
-        </div>
-        <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg">
-          <div class="flex items-center">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 0 1-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0 1 15 18.257V17.25m6-12V15a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 15V5.25m18 0A2.25 2.25 0 0 0 18.75 3H5.25A2.25 2.25 0 0 0 3 5.25m18 0V12a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 12V5.25" />
-          </svg>
-          <p class="text-xl ml-1 text-gray-700 dark:text-gray-300">Solo Entrepreneur</p>
-          </div>
-          <p class="mt-2 text-sm text-gray-500 dark:text-gray-300">
-            From idea to launch — I handle product, code, and growth as a one-person startup.
           </p>
         </div>
       </div>

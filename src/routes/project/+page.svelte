@@ -33,10 +33,12 @@
                 <p class="text-gray-600 dark:text-gray-300 mb-1">{post.synopsis}</p>
                 {#if post.tags}
                 <div class="flex gap-2 overflow-auto">
-                    {#each post.tags as tag}
-                    <span class="px-2 py-1 bg-gray-100 rounded-full text-sm sm:text-nowrap overflow-hidden">
-                        {tag}
-                    </span>
+                    {#each post.tags as tag, index}
+                    {#if index < 3}
+                        <span class="px-2 py-1 bg-gray-100 rounded-full text-sm sm:text-nowrap overflow-hidden">
+                            {tag}
+                        </span>
+                    {/if}
                     {/each}
                 </div>
                 {/if}
