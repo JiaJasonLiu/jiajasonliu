@@ -1,15 +1,28 @@
 export function convertToTailwind(html: string): string {
 	// This function can be expanded to convert specific HTML elements to Tailwind classes
 	const format = `
-			<head>
+		<head>
 			<style>
-			body {
-			font-family: 'Georgia', serif;
-			line-height: 2;
-			font-size: 18px;
-			padding: 2rem;
-			}
-		</style>
+				body {
+					font-family: 'Georgia', serif;
+					line-height: 2;
+					font-size: 18px;
+					padding: 2rem;
+				}
+				table {
+					width: 100%;
+					border-collapse: collapse;
+					margin: 20px 0;
+				}
+				table th, table td {
+					border: 1px solid #ccc;
+					padding: 10px;
+					text-align: left;
+				}
+				table th {
+					background-color: #f4f4f4;
+				}
+			</style>
 		</head>
 		`
 	html = format + html

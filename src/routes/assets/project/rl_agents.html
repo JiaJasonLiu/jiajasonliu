@@ -1,18 +1,222 @@
-<h1>Reinforcement Learning Hits the Fast Lane</h1>
-<p>In a groundbreaking application of <strong>Reinforcement Learning (RL)</strong>, AI agents have been trained to navigate a complex highway simulation, showcasing performance that now exceeds that of human drivers.</p>
+<h1>
+  Introduction
+</h1>
 
-<p>Using state-of-the-art algorithms like <em>Proximal Policy Optimization (PPO)</em> and <em>Deep Q-Learning</em>, these agents learn by trial and error, continually refining their driving strategies through millions of simulated experiences. 
-    The result? </p>
 <p>
-Smooth lane changes, collision avoidance, and aggressive overtaking maneuvers—all performed with precision and consistency. With the best model performing better than human benchmarks</p>
+  Autonomous driving is one of the most fascinating frontiers in AI—and one of
+  its most complex challenges. In this project, we dive into how reinforcement
+  learning (RL) algorithms can be applied to tackle real-world highway driving
+  tasks, such as lane switching, speed control, and collision avoidance. Through
+  careful design of environments, observation spaces, reward functions, and the
+  implementation of state-of-the-art RL algorithms, we set out to train agents
+  that can safely and efficiently navigate simplified yet representative driving
+  scenarios.
+</p>
 
-<h2>How It Works</h2>
-<p>The simulated environment provides real-time feedback in the form of rewards and penalties. 
-Agents are encouraged to drive efficiently, safely, and quickly. With each iteration, they get better, faster, and smarter. 
-These models leverage deep neural networks to interpret visual inputs and make split-second driving decisions.</p>
+<h2>Understanding the Environment</h2>
+<p>
+  To simulate a highway driving scenario, we used an abstracted environment
+  where vehicles must switch lanes and adjust speed based on surrounding
+  traffic. This environment supports different observation models:
+</p>
+<ul>
+  <li>
+    <strong>Kinematics:</strong> The agent sees nearby vehicles via a matrix of
+    features (e.g., speed, lane position, relative distance).
+  </li>
+  <li>
+    <strong>Time-To-Collision (TTC):</strong> Predictive model using discretized
+    speed, time, and lane data.
+  </li>
+  <li>
+    <strong>Grayscale Vision:</strong> Stacked grayscale images simulate visual
+    input from previous frames, processed using convolutional neural networks
+    (CNNs).
+  </li>
+</ul>
+<p>
+  The action space includes five discrete options: lane changes (left/right),
+  staying in the current lane, and increasing/decreasing speed.
+</p>
+<p>
+  Rewards are crafted carefully to encourage safe and efficient driving. They
+  are composed of:
+</p>
+<ul>
+  <li><strong>Speed reward</strong></li>
+  <li><strong>Lane reward</strong> (favoring the rightmost lane)</li>
+  <li><strong>Collision penalties</strong></li>
+</ul>
+<p>
+  Rewards are normalized to improve training stability and designed to
+  discourage agents from deliberately crashing to end episodes early.
+</p>
 
-<h2>Outperforming Humans</h2>
-<p>After extensive training, these RL agents demonstrate behaviors that surpass average human drivers. They maintain optimal speed, anticipate obstacles, and adapt to traffic patterns with uncanny accuracy. In head-to-head tests, the AI consistently achieves higher safety scores and lower travel times.</p>
+<h2>Algorithms Explored</h2>
 
-<h2>The Future of AI-Driven Mobility</h2>
-<p>This achievement marks a significant milestone for the future of autonomous systems. While these agents currently operate in simulations, the underlying technology paves the way for more advanced, intelligent driving systems in real-world applications.</p>
+<h3>Q-Learning</h3>
+<p>
+  Q-learning laid the foundation by mapping state-action pairs to future rewards
+  using a simple tabular approach. However, due to the high-dimensional state
+  space, it quickly showed limitations—poor generalization and slow learning
+  made it impractical beyond basic tasks.
+</p>
+
+<h3>Deep Q-Network (DQN)</h3>
+<p>
+  By introducing neural networks, DQN replaced Q-tables with function
+  approximators, allowing the agent to process large, continuous state spaces.
+  We used both <strong>Multilayer Perceptrons (MLPs)</strong> for kinematic data
+  and <strong>CNNs</strong> for grayscale images. Experience replay and target
+  networks helped stabilize training.
+</p>
+<p>
+  Despite careful tuning, baseline DQN plateaued around a reward of 0.73. To
+  push performance further, we explored a suite of enhancements known as
+  <strong>Rainbow DQN</strong>.
+</p>
+
+<h2>Rainbow DQN: Smarter, Faster, Stronger</h2>
+<p>Rainbow DQN combines multiple improvements over vanilla DQN:</p>
+<ul>
+  <li><strong>Double DQN:</strong> Prevents overestimation of Q-values.</li>
+  <li>
+    <strong>Dueling Networks:</strong> Separates state-value and
+    action-advantage estimation.
+  </li>
+  <li>
+    <strong>Noisy Networks:</strong> Adds learnable noise for better
+    exploration.
+  </li>
+  <li>
+    <strong>N-Step Returns:</strong> Uses multiple future steps for better
+    reward estimation.
+  </li>
+  <li>
+    <strong>Prioritized Experience Replay (PER):</strong> Samples more important
+    experiences based on temporal-difference (TD) error.
+  </li>
+</ul>
+<p>
+  These enhancements significantly improved learning.
+  <strong>Rainbow DQN achieved a reward of 0.90</strong>, outperforming both
+  baseline DQN and even the human baseline of 0.88.
+</p>
+
+<h2>Proximal Policy Optimization (PPO): The Policy-Based Contender</h2>
+<p>
+  PPO, a policy-gradient method, was evaluated using both MLP and CNN
+  architectures. While CNN-based PPO learned basic behaviors like collision
+  avoidance, it struggled with more complex skills like lane switching.
+</p>
+<p>
+  Interestingly, the MLP-based PPO showed better overall results, achieving a
+  reward of <strong>0.72</strong>. However, both versions occasionally failed to
+  take meaningful actions, leading to episodes ending in timeouts.
+</p>
+
+<h2>Performance Comparison</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Algorithm</th>
+      <th>Avg. Episode Length</th>
+      <th>Avg. Reward</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Rainbow DQN</td>
+      <td>21.97</td>
+      <td><strong>0.9006</strong></td>
+    </tr>
+    <tr>
+      <td>Dueling DQN</td>
+      <td>21.20</td>
+      <td>0.8777</td>
+    </tr>
+    <tr>
+      <td>PER DQN</td>
+      <td>20.64</td>
+      <td>0.8484</td>
+    </tr>
+    <tr>
+      <td>Baseline DQN</td>
+      <td>28.29</td>
+      <td>0.7341</td>
+    </tr>
+    <tr>
+      <td>PPO (MLP)</td>
+      <td>27.92</td>
+      <td>0.7228</td>
+    </tr>
+    <tr>
+      <td>PPO (CNN)</td>
+      <td>30.00</td>
+      <td>0.6900</td>
+    </tr>
+    <tr>
+      <td>Q-Learning</td>
+      <td>27.17</td>
+      <td>0.7094</td>
+    </tr>
+    <tr>
+      <td>Human</td>
+      <td>29.70</td>
+      <td>0.8820</td>
+    </tr>
+    <tr>
+      <td>Random</td>
+      <td>12.13</td>
+      <td>0.7250</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>Challenges & Reflections</h2>
+<p>
+  Throughout the project, we faced hardware limitations, long training times (up
+  to 10 hours per agent), and debugging hurdles. These constraints made it
+  difficult to fully explore PPO's potential or implement advanced variants like
+  <strong>Categorical Rainbow DQN</strong> or
+  <strong>Soft Target Updates</strong>.
+</p>
+<p>
+  Nonetheless, this project demonstrated how powerful reinforcement learning can
+  be—even in simplified environments. Each method brought unique insights, from
+  Q-learning’s foundational concepts to Rainbow DQN’s cutting-edge performance.
+</p>
+
+<h2>Future Work</h2>
+<ul>
+  <li>
+    <strong>More Realistic Environments:</strong> Extend agents to handle
+    intersections, merging, or urban scenarios.
+  </li>
+  <li>
+    <strong>Custom Reward Shaping:</strong> Especially for PPO, better
+    incentives could encourage complex behaviors like overtaking.
+  </li>
+  <li>
+    <strong>Policy Method Exploration:</strong> Try algorithms like A3C or SAC
+    for richer policy optimization.
+  </li>
+  <li>
+    <strong>Better Exploration:</strong> Techniques like adaptive entropy could
+    lead to faster and more intelligent learning.
+  </li>
+</ul>
+
+<h2>Final Thoughts</h2>
+<p>
+  Autonomous driving represents a high-stakes, high-potential application of AI.
+  This project shows that with the right reinforcement learning techniques, even
+  complex behaviors can emerge from simple rules and well-structured training.
+</p>
+<p>
+  <strong>Rainbow DQN</strong> has proven itself to be a robust and effective
+  method in the highway driving scenario. With more time, compute, and
+  experimentation, there's no doubt these techniques could generalize to more
+  advanced driving challenges—and help pave the way for safer autonomous
+  systems.
+</p>
