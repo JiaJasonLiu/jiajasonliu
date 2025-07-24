@@ -5,7 +5,7 @@ export function convertToTailwind(html: string): string {
 			<style>
 			body {
 			font-family: 'Georgia', serif;
-			line-height: 1.6;
+			line-height: 2;
 			font-size: 18px;
 			padding: 2rem;
 			}
@@ -13,7 +13,6 @@ export function convertToTailwind(html: string): string {
 		</head>
 		`
 	html = format + html
-	console.log(html)
 	return html
 		.replace(/<h1>/g, '<h1 class="text-3xl font-bold">')
 		.replace(/<h2>/g, '<h2 class="text-2xl font-semibold">')
