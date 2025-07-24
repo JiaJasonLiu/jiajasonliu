@@ -20,7 +20,6 @@ export function load() {
 			return new Date(b.date).getTime() - new Date(a.date).getTime()
 		})
 	const starPostIndex = resultsPosts.findIndex((post) => post.star)
-	console.log(`Star post index: ${starPostIndex}`);
 	if (starPostIndex !== -1) {
 		const [starPost] = resultsPosts.splice(starPostIndex, 1);
 		resultsPosts.unshift(starPost); // Place it at the top

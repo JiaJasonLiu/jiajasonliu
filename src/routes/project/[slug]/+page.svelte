@@ -7,14 +7,21 @@
 <div class="container max-w-2xl mx-auto pb-10">
     <article class="prose lg:prose-xl mx-auto">
         <h1 class="text-4xl font-bold mb-4">{post.title}</h1>
-        <h1 class="text-l text-gray-700 mb-4">{post.synopsis}</h1>
+        <h1 class="text-xl text-gray-700 mb-4">{post.synopsis}</h1>
+        <time class="block text-l text-gray-800 mb-4">CREATED IN {post.date}</time>
         <img 
             src={post.image}
             alt={post.title}
-            class="w-11/12 justify-self-center h-auto mb-4 rounded-lg shadow-lg"
+            class="w-11/12 justify-self-center h-auto mb-8 rounded-lg shadow-lg"
         />
+        <div class="flex flex-col gap-4"> 
+            {@html post.content}
+        </div>
         {#if post.tags}
-        <div class="mb-4 flex gap-2">
+        <div class="mt-8 flex gap-2 items-center">
+            <h3>
+                Topics: 
+            </h3>
             {#each post.tags as tag}
             <span class="px-2 py-1 bg-white border border-gray-400 select-none rounded-full text-sm">
                 {tag}
@@ -22,9 +29,5 @@
             {/each}
         </div>
         {/if}
-        <time class="block text-l text-gray-800 mb-4">CREATED IN {post.date}</time>
-        <div class="flex flex-col gap-4"> 
-            {@html post.content}
-        </div>
     </article>
 </div> 
