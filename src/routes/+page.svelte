@@ -19,17 +19,20 @@
       <h2 class="text-4xl font-bold text-gray-900 dark:text-gray-300">Always have a Plan Z</h2>
       <h3 class="mt-5 text-lg text-gray-500 dark:text-gray-400">
         Have a dream to pursue is the most fulfilling aspect of life I can imagine. 
-        Hurdles with arise. Challenges will be faced. Various Backup plans will be made.
-        Nonetheless, I will continue to strive to solve problems and achieve my goals in my own way.
+        Hurdles with arise. 
+        Challenges will be faced.
+        Backup plans will be made.
+        Nonetheless, I will continue to strive to solve problems and achieve my goals in my own way by being a
+        <strong> Software Engineer.</strong>
       </h3>
       <p class="mt-5 text-base text-gray-500 dark:text-gray-400">
-        If you share the same passion for problem-solving, innovation, and outlook
+        If you share the same passion for problem-solving, innovation, and outlook.
       </p>
-      <button on:click={scrollToSection} aria-label="Let us Connect" class="mt-6 px-6 py-3 bg-white-600 text-black dark:text-gray-100 border dark: font-semibold rounded-xl hover:text-white hover:bg-purple-800 transition duration-300">
+      <button on:click={scrollToSection} aria-label="Let us Connect" class="mt-6 px-6 py-3 bg-white-600 text-black dark:text-gray-100 border font-semibold rounded-xl hover:text-white hover:bg-purple-800 transition duration-300">
         Let Us Connect!
       </button>
     </div>
-    <img src="/jiajason.png" alt="JiaJason's Pic" class="right-0 rounded-full max-h-100 shadow-2xl">
+    <img src="/jiajason.png" alt="JiaJason's Pic" class="md:inline hidden right-0 rounded-full max-h-100 shadow-2xl">
      </div>
   </section>
   <section id="roles" class="mb-16">
