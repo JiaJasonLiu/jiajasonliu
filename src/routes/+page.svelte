@@ -33,7 +33,7 @@
   }
 
 </script>
-<main class="">
+<main class="max-h-screen dark:bg-gray-900">
   <!-- Hero Section -->
   <section id="hero" class="pb-5">
     <div class="max-w-7xl mx-auto flex py-8 lgjustify-between gap-15 items-center">
