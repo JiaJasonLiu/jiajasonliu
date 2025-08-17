@@ -1,6 +1,6 @@
 <script>
 
-  import { slide, fade, crossfade } from 'svelte/transition';
+  import { fade } from 'svelte/transition';
   import IntersectionObserver from "svelte-intersection-observer";
 
   /**
@@ -33,9 +33,9 @@
   }
 
 </script>
-<main class="bg-gray-50 max-h-screen dark:bg-gray-900">
+<main class="">
   <!-- Hero Section -->
-  <section id="hero" class="mb-5">
+  <section id="hero" class="pb-5">
     <div class="max-w-7xl mx-auto flex py-8 lgjustify-between gap-15 items-center">
     <div class="flex flex-col items-start">
       <h2 class="text-4xl font-bold text-gray-900 dark:text-gray-300">Always have a Plan Z</h2>

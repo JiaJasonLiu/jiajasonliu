@@ -4,7 +4,7 @@
     const {post} = data;
 </script>
 
-<div class="container max-w-2xl mx-auto pb-10">
+<div class="container max-w-4xl mx-auto pb-10">
     <article class="prose lg:prose-xl mx-auto">
         <h1 class="text-4xl font-bold mb-4 dark:text-gray-100">{post.title}</h1>
         <h1 class="text-xl text-gray-700 mb-4 dark:text-gray-300">{post.synopsis}</h1>

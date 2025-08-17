@@ -3,7 +3,10 @@ export function convertToTailwind(html: string): string {
 	const format = `
 		<head>
 			<style>
-				body {
+				h1, h2, h3, h4 {
+					font-family: 'Georgia', serif;
+					}
+				body {		
 					font-family: 'Georgia', serif;
 					line-height: 2;
 					font-size: 18px;
@@ -27,10 +30,10 @@ export function convertToTailwind(html: string): string {
 		`
 	html = format + html
 	return html
-		.replace(/<h1>/g, '<h1 class="text-3xl font-bold">')
-		.replace(/<h2>/g, '<h2 class="text-2xl font-semibold">')
-		.replace(/<h3>/g, '<h3 class="text-xl font-semibold">')
-		.replace(/<p>/g, '<p class="">')
+		.replace(/<h1>/g, '<h1 class="text-3xl font-bold mt-5">')
+		.replace(/<h2>/g, '<h2 class="text-2xl font-semibold mt-3">')
+		.replace(/<h3>/g, '<h3 class="text-xl font-semibold mt-1">')
+		.replace(/<p>/g, '<p class="pb-1">')
 		.replace(/<ul>/g, '<ul class="list-disc pl-5 mb-4">')
 		.replace(/<ol>/g, '<ol class="list-decimal pl-5 mb-4">');
 }
