@@ -7,8 +7,8 @@
     <h1 class="text-4xl font-bold mb-8 dark:text-gray-300">Blog Posts</h1>
     <div class="grid gap-8">
         {#each posts as post}
-            <article class="p-6 bg-white dark:bg-gray-800 dark:shadow-gray-700 rounded-lg shadow-lg shadow-gray-400 hover:shadow-xl group transition-shadow duration-300">
-                <h2 class="text-2xl font-semibold mb-2 hover:text-purple-800 dark:text-gray-300">
+            <article class="p-6 bg-white dark:bg-gray-800 shadow-2xl shadow-indigo-500/50 rounded-lg hover:shadow-xl group transition-shadow duration-300">
+                <h2 class="text-2xl font-semibold mb-2 hover:text-indigo-800 dark:text-gray-300">
                     <a class="flex items-center" href="/blog/{post.slug}">
                         {#if post.star}
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6 motion-safe:animate-pulse">
