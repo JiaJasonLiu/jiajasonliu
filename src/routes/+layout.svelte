@@ -28,7 +28,7 @@
     <div class="flex items-center justify-between">
       <a href="/" onclick={() => showNav = false} class="flex text-2xl font-mono text-gray-900 dark:text-white hover:text-indigo-800">
       <img src="/logo.png" alt="JiaJason's Pic" class="right-0 mt-1 rounded-full size-6 shadow-2xl">
-      <span class={`-ml-1 ${currentPage == 0 ? "text-indigo-800" : "text-indigo-900/50 hover:text-indigo-800"}`}>
+      <span class={`-ml-1 ${currentPage == 0 ? "text-indigo-800" : "dark:text-gray-300 text-indigo-900/50 hover:text-indigo-800"}`}>
         ason Liu
       </span>
       </a>
