@@ -7,7 +7,7 @@
   let { children } = $props();
   let showNav = $state(false)
   let currentPage = $state(0)
-  const pages = ['/', '/project', '/blog']
+  const pages = ['', 'project', 'blog']
   
   
   
@@ -17,7 +17,7 @@
         showNav = true;
       }, 200);
     }
-    currentPage = pages.indexOf(page.url.pathname)
+    currentPage = pages.indexOf(page.url.pathname.split('/')[1])
 	});
 
 </script>
