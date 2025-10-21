@@ -3,23 +3,23 @@
   import { slide, fade } from 'svelte/transition';
   import { page } from '$app/state';
   
-  
   let { children } = $props();
-  let showNav = $state(false)
-  let currentPage = $state(0)
-  const pages = ['', 'project', 'blog']
-  
-  
+  let showNav = $state(false);
+  let currentPage = $state(0);
+  const pages = ['', 'project', 'blog'];
   
   $effect(() => {
-    if (!showNav){
-      setTimeout(() => {
-        showNav = true;
-      }, 200);
+    if (!showNav) {
+      setTimeout(
+        () => {
+          showNav = true;
+        },
+        200
+      );
     }
-    currentPage = pages.indexOf(page.url.pathname.split('/')[1])
-	});
-
+  
+    currentPage = pages.indexOf(page.url.pathname.split('/')[1]);
+  });
 </script>
 
 {#if showNav}
