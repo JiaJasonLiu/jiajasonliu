@@ -19,9 +19,9 @@
                     </a>
                 </h2>
                 {#if post.synopsis}
-                <p class="text-gray-700 dark:text-gray-300 mb-4">{post.synopsis}</p>
+                <p class="text-gray-700 dark:text-gray-300 mb-1">{post.synopsis}</p>
                 {/if}
-                <time class="text-gray-600  dark:text-gray-300 block">CREATED IN {post.date}</time>
+                <time class="text-xs text-gray-600 dark:text-gray-300">{post.date}</time>
             </article>
         {/each}
     </div>

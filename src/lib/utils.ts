@@ -7,15 +7,11 @@ export function convertToTailwind(html: string): string {
 					font-family: 'Poppins', serif;
 				}
 				h2 {
-					margin-top: 2em;
+					margin-top: 2rem;
 				}
 				h3 {
-					margin-top: 1em;
+					margin-top: 1rem;
 				}
-				h4 {
-					margin-top: 0.5em;
-				}
-				
 				body {		
 					font-family: 'Inter', serif;
 					line-height: 2;
@@ -26,7 +22,6 @@ export function convertToTailwind(html: string): string {
 					font-family: 'Inter', serif;
 					line-height: 2;
 					font-size: 18px;
-					margin-top: 0.25em;
 				}
 				table {
 					width: 100%;
@@ -47,6 +42,6 @@ export function convertToTailwind(html: string): string {
 		.replace(/<h2>/g, '<h2 class="text-2xl font-semibold mt-3">')
 		.replace(/<h3>/g, '<h3 class="text-xl font-semibold mt-1">')
 		.replace(/<p>/g, '<p class="pb-1">')
-		.replace(/<ul>/g, '<ul class="list-disc pl-5 mb-4">')
+		.replace(/<ul>/g, '<ul class="list-disc pl-5">')
 		.replace(/<ol>/g, '<ol class="list-decimal pl-5 mb-4">');
 }

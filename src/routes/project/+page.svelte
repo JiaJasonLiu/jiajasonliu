@@ -30,14 +30,14 @@
                 <div class="flex gap-2 overflow-auto">
                     {#each post.tags as tag, index}
                     {#if index < 3}
-                        <span class="px-2 py-1 bg-gray-100 dark:bg-gray-400 rounded-full text-sm text-nowrap select-none overflow-hidden">
+                        <span class="px-2 py-1 bg-gray-100 dark:bg-gray-200 rounded-full text-sm text-nowrap select-none overflow-hidden">
                             {tag}
                         </span>
                     {/if}
                     {/each}
                 </div>
                 {/if}
-                <time class="block text-l text-gray-500 dark:text-gray-400 uppercase">Created in {post.date}</time>
+                <time class="text-sm text-gray-500 dark:text-gray-400">{post.date}</time>
             </div>
         </div>
         {/each}
