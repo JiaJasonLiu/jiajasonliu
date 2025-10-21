@@ -4,13 +4,29 @@ export function convertToTailwind(html: string): string {
 		<head>
 			<style>
 				h1, h2, h3, h4 {
-					font-family: 'Georgia', serif;
-					}
+					font-family: 'Poppins', serif;
+				}
+				h2 {
+					margin-top: 2em;
+				}
+				h3 {
+					margin-top: 1em;
+				}
+				h4 {
+					margin-top: 0.5em;
+				}
+				
 				body {		
-					font-family: 'Georgia', serif;
+					font-family: 'Inter', serif;
 					line-height: 2;
 					font-size: 18px;
 					padding: 2rem;
+				}
+				p {		
+					font-family: 'Inter', serif;
+					line-height: 2;
+					font-size: 18px;
+					margin-top: 0.25em;
 				}
 				table {
 					width: 100%;
@@ -21,9 +37,6 @@ export function convertToTailwind(html: string): string {
 					border: 1px solid #ccc;
 					padding: 10px;
 					text-align: left;
-				}
-				table th {
-					background-color: #f4f4f4;
 				}
 			</style>
 		</head>

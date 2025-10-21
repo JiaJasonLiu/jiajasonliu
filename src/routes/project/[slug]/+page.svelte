@@ -6,13 +6,13 @@
 
 <div class="container max-w-4xl mx-auto pb-10">
     <article class="prose lg:prose-xl mx-auto">
-        <h1 class="text-4xl font-bold mb-4 dark:text-gray-100">{post.title}</h1>
-        <h1 class="text-xl text-gray-700 mb-4 dark:text-gray-300">{post.synopsis}</h1>
-        <time class="block text-l text-gray-800 mb-4 dark:text-gray-300">CREATED IN {post.date}</time>
+        <h1 class="text-4xl font-bold dark:text-gray-100">{post.title}</h1>
+        <h2 class="text-xl text-gray-700 mb-2 dark:text-gray-100">{post.synopsis}</h2>
+        <time class="block text-sm text-gray-800 mb-4 dark:text-gray-300">{post.date}</time>
         <img 
             src={post.image}
             alt={post.title}
-            class="w-11/12 justify-self-center h-auto mb-8 rounded-lg shadow-lg"
+            class="w-full h-full justify-self-center mb-8 rounded-lg shadow-lg"
         />
         <div class="flex flex-col gap-4 dark:text-gray-100"> 
             {@html post.content}
