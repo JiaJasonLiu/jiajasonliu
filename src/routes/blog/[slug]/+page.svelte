@@ -10,7 +10,7 @@
         <h1 class="text-4xl font-bold mb-7 dark:text-gray-100">{post.title}</h1>
         <h1 class="text-xl text-gray-700 dark:text-gray-300">{post.synopsis}</h1>
         <time class="text-sm text-gray-600 mb-4 dark:text-gray-300">{post.date}</time>
-        <div class="flex flex-col gap-4 dark:text-gray-100"> 
+        <div class="flex flex-col gap-4 dark:text-gray-100 prose"> 
             {@html post.content}
         </div>
     </article>
