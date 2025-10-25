@@ -55,9 +55,9 @@ export function convertToTailwind(html: string): string {
 		`
 	html = format + html
 	return html
-		.replace(/<h1>/g, '<h2 class="dark:text-gray-200">')
-		.replace(/<h2>/g, '<h2 class="font-semibold">')
-		.replace(/<h3>/g, '<h3 class="font-semibold">')
+		.replace(/<h1>/g, '<h2 class="">')
+		.replace(/<h2>/g, '<h2 class="">')
+		.replace(/<h3>/g, '<h3 class="">')
 		.replace(/<strong>/g, '<strong class="not-prose dark:text-gray-100">')
 		.replace(/<p>/g, '<p>')
 		.replace(/<ul>/g, '<ul class="pl-5">')
