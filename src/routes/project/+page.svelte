@@ -5,7 +5,7 @@
 
 
 <div class="container max-w-6xl mx-auto">
-    <h1 class="text-4xl font-bold mb-8 dark:text-gray-300">Projects</h1>
+    <h1 class="text-sm font-bold mb-8 dark:text-gray-300">Projects</h1>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {#each posts as post}
         <div class="bg-white dark:bg-gray-800 shadow-2xl shadow-indigo-500/50 rounded-lg overflow-hidden group hover:shadow-xl transition-shadow duration-300">

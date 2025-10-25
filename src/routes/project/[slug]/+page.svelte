@@ -5,16 +5,16 @@
 </script>
 
 <div class="container max-w-4xl mx-auto pb-15">
-    <article class="prose lg:prose-xl mx-auto">
-        <h1 class="text-4xl font-bold mb-7 dark:text-gray-100">{post.title}</h1>
-        <h1 class="text-xl text-gray-700 mb-2 dark:text-gray-100">{post.synopsis}</h1>
+    <article class="mx-auto">
+        <h1 class="text-4xl font-bold  dark:text-gray-100">{post.title}</h1>
+        <h2 class="text-xl text-gray-700 mb-2 dark:text-gray-100">{post.synopsis}</h2>
         <time class="block text-sm text-gray-800 mb-4 dark:text-gray-300">{post.date}</time>
         <img 
             src={post.image}
             alt={post.title}
             class="w-full h-full justify-self-center mb-8 rounded-lg shadow-lg"
         />
-        <div class="flex flex-col gap-4 dark:text-gray-100"> 
+        <div class="flex flex-col max-w-none prose *:dark:text-gray-100"> 
             {@html post.content}
         </div>
         {#if post.tags}
