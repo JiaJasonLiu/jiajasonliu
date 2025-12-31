@@ -3,6 +3,21 @@
   import { fade } from 'svelte/transition';
   import IntersectionObserver from "svelte-intersection-observer";
 
+  const intros = [
+    {
+      title: "Identity",
+      value: "Jia Sheng Liu"
+    },
+    {
+      title: "Position",
+      value: "Software Engineer, Sparklayer B2B"
+    },
+    {
+      title: "Location",
+      value: "Bath, United Kingdom"
+    }
+  ]
+
   /**
    * @type {HTMLDivElement}
    */
@@ -18,29 +33,37 @@
   let contactSection = false;
   let hasAnimated = false;
   let hasAnimatedContacts = false;
-   /**
-   * @param {{ preventDefault: () => void; currentTarget: { getAttribute: (arg0: string) => any; }; }} event
-   */
-  function scrollToSection(event) {
-    event.preventDefault();
-    contactSection = true;
-    hasAnimated = true;
-    hasAnimatedContacts = true;
-    setTimeout(() => {
-      window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
-      
-    }, 200);
-  }
 
 </script>
 <main class="max-h-screen dark:bg-gray-900">
   <!-- Hero Section -->
-  <section id="hero" class="mb-32">
-    <div class="max-w-7xl mx-auto flex py-8 pt-24 justify-between gap-15 items-center">
-      <h1 class="text-4xl font-bold py-8 mt-10 text-gray-900 dark:text-gray-300">Step into Dream Amethyst</h1>
-      <h2 class="mt-8 text-xl text-gray-500 dark:text-gray-400">
+  <section id="hero" class="border border-purple-100 py-32">
+    <div class="max-w-7xl mx-auto flex flex-col justify-between items-center">
+      <h1 class="text-6xl text-center font-lora text-primary dark:text-gray-300 italic">
+        Step into <br/> <span class="font-bold not-italic">Dream Amethyst</span>
+      </h1>
+      <h2 class="mt-6 w-3/4 text-xl text-center text-secondary dark:text-gray-400">
         a space for ideas, dreams, and unexpected adventures. Step in, explore, and see where it takes you.
       </h2>
+    </div>
+  </section>
+  <section id="welcome">
+    <div class="mx-auto max-w-xs px-10 border text-center bg-white border-purple-100 items-center justify-between -translate-y-20 transform py-8 rounded-lg shadow-2xl shadow-indigo-500/30 transition">
+      <h2 class="font-montserrat mb-4 text-2xl text-primary tracking-[0.5rem] uppercase">
+        CREATOR
+      </h2>
+      {#each intros as intro}
+        <div class="gap-2">
+          <div class="border-t-1 py-2 border-purple-200">
+            <h3 class="text-[#947ba8] uppercase font-montserrat">
+              {intro.title}
+            </h3>
+            <span class="text-sm font-lora font-bold text-gray-900">
+              {intro.value}
+          </span>
+          </div>
+        </div>
+      {/each}
     </div>
   </section>
   <section id="roles" class="mb-32">
@@ -65,7 +88,6 @@
                 <p class="text-xl ml-1 text-gray-700 dark:text-white">Solo Entrepreneur</p>
                 </div>
                 <p class="mt-2 text-sm text-gray-500 dark:text-gray-300">
-                  From idea to launch — I handle product, code, and growth as a one-person startup. I have various problems I want to tackle, but not enough time.
                 </p>
               </div>
               <div in:fade={{duration:500, delay:1000}} class="bg-white dark:bg-gray-700 p-8 rounded-lg shadow-2xl shadow-indigo-500/30">
