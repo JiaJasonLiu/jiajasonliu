@@ -48,23 +48,43 @@
     </div>
   </section>
   <section id="welcome">
-    <div class="mx-auto max-w-xs px-10 border text-center bg-white border-purple-100 items-center justify-between -translate-y-20 transform py-8 rounded-lg shadow-2xl shadow-indigo-500/30 transition">
-      <h2 class="font-montserrat mb-4 text-2xl text-primary tracking-[0.5rem] uppercase">
-        CREATOR
-      </h2>
-      {#each intros as intro}
-        <div class="gap-2">
-          <div class="border-t-1 py-2 border-purple-200">
-            <h3 class="text-[#947ba8] uppercase font-montserrat">
-              {intro.title}
-            </h3>
-            <span class="text-sm font-lora font-bold text-gray-900">
-              {intro.value}
-          </span>
+    <div class="grid grid-cols-3">
+      <div class="mx-full px-10 border text-center bg-white border-purple-100 py-8 rounded-lg shadow-2xl shadow-indigo-500/30 translate-y-10">
+        <h2 class="font-montserrat mb-4 text-2xl text-primary tracking-[0.25rem] uppercase">
+          Experiences
+        </h2>
+        <p>
+          From idea to launch — I handle product, code, and growth as a one-person startup. I have various problems I want to tackle, but not enough time.
+        </p>
+      </div>
+      <div class="mx-auto max-w-xs px-10 border text-center bg-white border-purple-100 items-center -translate-y-20 transform py-8 rounded-lg shadow-2xl shadow-indigo-500/30">
+        <h2 class="font-montserrat mb-4 text-2xl text-primary tracking-[0.5rem] uppercase">
+          CREATOR
+        </h2>
+        {#each intros as intro}
+          <div class="gap-2">
+            <div class="border-t-1 py-2 border-purple-200">
+              <h3 class="text-[#947ba8] uppercase font-montserrat">
+                {intro.title}
+              </h3>
+              <span class="text-sm font-lora font-bold text-gray-900">
+                {intro.value}
+            </span>
+            </div>
           </div>
-        </div>
-      {/each}
+        {/each}
+      </div>
+      <div class="mx-full px-10 border text-center bg-white border-purple-100 py-8 rounded-lg shadow-2xl shadow-indigo-500/30 translate-y-10">
+        <h2 class="font-montserrat mb-4 text-2xl text-primary tracking-[0.25rem] uppercase">
+          Solo Entrepreneur
+        </h2>
+        <p>
+          From idea to launch — I handle product, code, and growth as a one-person startup. I have various problems I want to tackle, but not enough time.
+        </p>
+      </div>
     </div>
+  </section>
+  <section id="roles" class="left-0">
   </section>
   <section id="roles" class="mb-32">
     <div class="max-w-7xl mx-auto">
@@ -84,10 +104,10 @@
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
                 </svg>
-
                 <p class="text-xl ml-1 text-gray-700 dark:text-white">Solo Entrepreneur</p>
                 </div>
                 <p class="mt-2 text-sm text-gray-500 dark:text-gray-300">
+                  From idea to launch — I handle product, code, and growth as a one-person startup. I have various problems I want to tackle, but not enough time.
                 </p>
               </div>
               <div in:fade={{duration:500, delay:1000}} class="bg-white dark:bg-gray-700 p-8 rounded-lg shadow-2xl shadow-indigo-500/30">

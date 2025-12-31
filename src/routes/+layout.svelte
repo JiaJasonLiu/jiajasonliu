@@ -43,7 +43,7 @@
 
 {#if showNav}
 <main in:fade={{duration:1500, delay:1200}} class="pt-24 ">
-  <div class="container mx-auto px-4">
+  <div class="container mx-auto mx-4">
   {@render children()}
   </div>
 </main>
