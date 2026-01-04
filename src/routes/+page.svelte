@@ -2,6 +2,7 @@
 
   import { fade } from 'svelte/transition';
   import IntersectionObserver from "svelte-intersection-observer";
+  import Card from '$lib/components/Card.svelte';
 
   const intros = [
     {
@@ -30,20 +31,9 @@
       </h2>
     </div>
   </section>
-  <section id="welcome">
-    <div class="grid grid-cols-3 gap-x-2 mb-10">
-      <div class="my-auto px-10 border text-center bg-white border-purple-100 py-8 rounded-lg shadow-2xl shadow-indigo-500/30 -translate-y-10">
-        <h2 class="font-montserrat mb-4 text-lg text-primary tracking-[0.25rem] uppercase">
-          JSHandBook
-        </h2>
-        <p>
-          Personal handbook about all the lessons I have learned throughout the years
-        </p>
-      </div>
-      <div class="mx-auto max-w-xs px-10 border text-center bg-white border-purple-100 items-center -translate-y-20 transform py-8 rounded-lg shadow-2xl shadow-indigo-500/30">
-        <h2 class="font-montserrat mb-4 text-xl text-primary tracking-[0.5rem] uppercase">
-          CREATOR
-        </h2>
+  <div class="grid grid-cols-3 -translate-y-15">
+    <div></div>
+  <Card title="creator">
         {#each intros as intro}
           <div class="gap-2">
             <div class="border-t py-2 border-purple-200">
@@ -56,16 +46,51 @@
             </div>
           </div>
         {/each}
+      </Card></div>
+  <section id="welcome" class="w-full grid grid-cols-3 gap-x-2 mb-10 -translate-y-13">
+      <div class="flex flex-col gap-3 -translate-y-35">
+        <Card title="JSHandBook">
+          <p>
+            Personal handbook about all the lessons I have learned throughout the years
+          </p>
+        </Card>
+        <Card title="stuff">
+        <p>
+          More Stuff
+        </p>
+      </Card>
+        <Card title="stuff">
+        <p>
+          More Stuff
+        </p>
+      </Card>
+
       </div>
-      <div class="my-auto px-10 border text-center bg-white border-purple-100 py-8 rounded-lg shadow-2xl shadow-indigo-500/30 -translate-y-5">
-        <h2 class="font-montserrat mb-4 text-lg text-primary tracking-[0.25rem] uppercase">
-          Master the Highway Environment
-        </h2>
+      <div class="flex flex-col gap-2">
+        <Card title="JSHandBook">
+          <p>
+            Personal handbook about all the lessons I have learned throughout the years
+          </p>
+        </Card>
+        <Card title="stuff">
+        <p>
+          More Stuff
+        </p>
+      </Card>
+      </div>
+      <div class="flex flex-col gap-2 -translate-y-20">
+        <Card title="Master the Highway Environment">
         <p>
           Reinforcement Learning Agents try to traverse a Highway Environment. Can it/they do it?
         </p>
+        
+      </Card>
+        <Card title="JSHandBook">
+          <p>
+            Personal handbook about all the lessons I have learned throughout the years
+          </p>
+        </Card>
       </div>
-    </div>
   </section>
   <!-- Experience Section -->
   <section id="experience" class="mb-20">

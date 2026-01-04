@@ -9,6 +9,8 @@
         Backup plans will be made.
         Nonetheless, I will continue to strive to solve problems and achieve my goals in my own way by being a
         <strong> Software Engineer.</strong>
+        <!-- I can make this more personal and adding more images of myself -> small tho -->
+         <!-- Like a sticky notes board -> I like to add some mess into it. Not too ordered -->
       </h2>
       <p class="mt-6 text-base text-gray-500 dark:text-gray-400">
         If you share the same passion for problem-solving, innovation, and outlook.
