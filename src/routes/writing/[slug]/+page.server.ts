@@ -9,7 +9,7 @@ export async function load({ params}) {
 		if (!post) {
 			throw error(404, 'Post not found');
 		}
-		const file = await import(`../../assets/blog/${post.slug}.html?raw`)
+		const file = await import(`../../assets/writing/${post.slug}.html?raw`)
 		.then(m => m.default);
 		post.content = convertToTailwind(file);
 		return {

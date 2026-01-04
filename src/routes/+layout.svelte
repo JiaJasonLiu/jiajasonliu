@@ -6,7 +6,7 @@
   let { children } = $props();
   let showNav = $state(false);
   let currentPage = $state(0);
-  const pages = ['', 'project', 'blog'];
+  const pages = ['', 'project', 'writing', 'about'];
   
   $effect(() => {
     if (!showNav) {
@@ -34,7 +34,8 @@
       </a>
       <div class="flex space-x-8">
         <a href="/project" onclick={() => showNav = false} class={`text-xl font-mono ${currentPage == 1 ? "text-indigo-800" :"text-indigo-900/50 dark:text-gray-300 hover:text-indigo-800 transition-colors"}`}>Projects</a>
-        <a href="/blog" onclick={() => showNav = false} class={`text-xl font-mono ${currentPage == 2 ? "text-indigo-800" :"text-indigo-900/50 dark:text-gray-300 hover:text-indigo-800 transition-colors"}`}>Blogs</a>
+        <a href="/writing" onclick={() => showNav = false} class={`text-xl font-mono ${currentPage == 2 ? "text-indigo-800" :"text-indigo-900/50 dark:text-gray-300 hover:text-indigo-800 transition-colors"}`}>Writing</a>
+        <a href="/about" onclick={() => showNav = false} class={`text-xl font-mono ${currentPage == 3 ? "text-indigo-800" :"text-indigo-900/50 dark:text-gray-300 hover:text-indigo-800 transition-colors"}`}>About</a>
       </div>
     </div>
   </nav>
