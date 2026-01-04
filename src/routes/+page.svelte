@@ -1,7 +1,4 @@
 <script>
-
-  import { fade } from 'svelte/transition';
-  import IntersectionObserver from "svelte-intersection-observer";
   import Card from '$lib/components/Card.svelte';
 
   const intros = [
@@ -19,9 +16,9 @@
     }
   ]
 </script>
-<main class="max-h-screen dark:bg-gray-900">
+<main class="max-h-screen">
   <!-- Hero Section -->
-  <section id="hero" class="border border-purple-100 py-32">
+  <section id="hero" class="border border-purple-100 py-52">
     <div class="max-w-7xl mx-auto flex flex-col justify-between items-center">
       <h1 class="text-6xl text-center font-lora text-primary dark:text-gray-300 italic">
         Step into <br/> <span class="font-bold not-italic">Dream Amethyst</span>
@@ -31,9 +28,12 @@
       </h2>
     </div>
   </section>
-  <div class="grid grid-cols-3 -translate-y-15">
+  <div class="grid grid-cols-3 -translate-y-15 gap-x-12">
     <div></div>
-  <Card title="creator">
+    <div class="px-10 border text-center bg-linear-to-b from-white via-blue-100 to-purple-100 border-purple-100 items-center py-8 rounded-lg shadow-2xl shadow-indigo-500/30">
+        <h2 class="font-montserrat mb-4 text-xl text-primary tracking-[0.5rem] uppercase">
+          CREATOR
+        </h2>
         {#each intros as intro}
           <div class="gap-2">
             <div class="border-t py-2 border-purple-200">
@@ -46,9 +46,10 @@
             </div>
           </div>
         {/each}
-      </Card></div>
-  <section id="welcome" class="w-full grid grid-cols-3 gap-x-2 mb-10 -translate-y-13">
-      <div class="flex flex-col gap-3 -translate-y-35">
+    </div>
+    </div>
+  <section id="welcome" class="w-full grid grid-cols-3 gap-x-12 mb-10 -translate-y-13">
+      <div class="flex flex-col gap-6 -translate-y-35">
         <Card title="JSHandBook">
           <p>
             Personal handbook about all the lessons I have learned throughout the years
@@ -66,7 +67,7 @@
       </Card>
 
       </div>
-      <div class="flex flex-col gap-2">
+      <div class="flex flex-col gap-6 translate-y-4">
         <Card title="JSHandBook">
           <p>
             Personal handbook about all the lessons I have learned throughout the years
@@ -78,7 +79,7 @@
         </p>
       </Card>
       </div>
-      <div class="flex flex-col gap-2 -translate-y-20">
+      <div class="flex flex-col gap-6 -translate-y-20">
         <Card title="Master the Highway Environment">
         <p>
           Reinforcement Learning Agents try to traverse a Highway Environment. Can it/they do it?
