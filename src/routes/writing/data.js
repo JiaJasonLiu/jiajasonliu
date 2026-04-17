@@ -16,5 +16,13 @@ export const posts = [
 		content:
 		''
 	},
+	{
+		slug: 'openclaw_technical',
+		title: 'The Technical Architecture of My AI Agents',
+		synopsis: 'An exploration of setting up a personal AI agent (Aura) using OpenClaw in Docker, controlled via Telegram.',
+		date: 'April 17, 2026',
+		content:
+		''
+	},
 
 ];

@@ -11,6 +11,7 @@ export async function load({ params}) {
 		}
 		const file = await import(`../../assets/writing/${post.slug}.html?raw`)
 		.then(m => m.default);
+		// add meta data to website
 		post.content = convertToTailwind(file);
 		return {
 			post

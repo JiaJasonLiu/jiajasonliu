@@ -16,7 +16,7 @@
     }
   ]
 </script>
-<main class="max-h-screen">
+<main class="max-h-screen pb-20">
   <!-- Hero Section -->
   <section id="hero" class="border border-purple-100 py-52">
     <div class="max-w-7xl mx-auto flex flex-col justify-between items-center">
@@ -30,7 +30,7 @@
   </section>
   <div class="grid grid-cols-3 -translate-y-15 gap-x-12">
     <div></div>
-    <div class="px-10 border text-center bg-linear-to-b from-white via-blue-100 to-purple-100 border-purple-100 items-center py-8 rounded-lg shadow-2xl shadow-indigo-500/30">
+    <div class="px-10 border text-center bg-linear-to-b from-white via-blue-100/50 to-purple-100/50 border-purple-100 items-center py-8 rounded-lg shadow-2xl shadow-indigo-500/30">
         <h2 class="font-montserrat mb-4 text-xl text-primary tracking-[0.5rem] uppercase">
           CREATOR
         </h2>
@@ -52,49 +52,42 @@
       <div class="flex flex-col gap-6 -translate-y-35">
         <Card title="JSHandBook">
           <p>
-            Personal handbook about all the lessons I have learned throughout the years
+            Everything I wish someone had told me earlier — documented, so I don't forget again.
           </p>
         </Card>
-        <Card title="stuff">
-        <p>
-          More Stuff
-        </p>
-      </Card>
-        <Card title="stuff">
-        <p>
-          More Stuff
-        </p>
-      </Card>
-
+        <Card title="Highway RL">
+          <p>
+            Taught reinforcement learning agents to navigate traffic. Spoiler: they learned faster than some drivers.
+          </p>
+        </Card>
       </div>
       <div class="flex flex-col gap-6 translate-y-4">
-        <Card title="JSHandBook">
+        <Card title="This Site">
           <p>
-            Personal handbook about all the lessons I have learned throughout the years
+            A personal corner of the internet — built with SvelteKit, Tailwind, and stubbornness.
           </p>
         </Card>
-        <Card title="stuff">
-        <p>
-          More Stuff
-        </p>
-      </Card>
+        <Card title="Soccer">
+          <p>
+            Playing the beautiful game whenever I can. The pitch is where I switch off.
+          </p>
+        </Card>
       </div>
       <div class="flex flex-col gap-6 -translate-y-20">
         <Card title="Master the Highway Environment">
-        <p>
-          Reinforcement Learning Agents try to traverse a Highway Environment. Can it/they do it?
-        </p>
-        
-      </Card>
-        <Card title="JSHandBook">
           <p>
-            Personal handbook about all the lessons I have learned throughout the years
+            Reinforcement Learning Agents try to traverse a Highway Environment. Can it/they do it?
+          </p>
+        </Card>
+        <Card title="Currently Reading">
+          <p>
+            Who Moved My Cheese — "The quicker you let go of old cheese, the sooner you find new cheese."
           </p>
         </Card>
       </div>
   </section>
   <!-- Experience Section -->
-  <section id="experience" class="mb-20">
+  <section id="experience" class="mb-50">
               <div class="max-w-7xl mx-auto">      
                 <h2 class="text-3xl font-bold mb-8 text-start text-gray-900 dark:text-white">Experiences</h2>
                 <div class="space-y-8 group bg-white dark:bg-gray-700 p-6 rounded-lg shadow-2xl shadow-indigo-500/50">
