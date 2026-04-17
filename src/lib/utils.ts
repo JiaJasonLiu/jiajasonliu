@@ -11,8 +11,7 @@ export function convertToTailwind(html: string): string {
 					margin-bottom: 1rem;
 					}
 				h2 {
-					margin-top: 2rem;
-					margin-bottom: 1rem;
+					margin-top: 1rem;
 				}
 				h3 {
 					margin-bottom: 1rem;
@@ -52,14 +51,31 @@ export function convertToTailwind(html: string): string {
 				}
 			</style>
 		</head>
-		`
-	html = format + html
-	return html
-		.replace(/<h1>/g, '<h2 class="">')
-		.replace(/<h2>/g, '<h2 class="">')
-		.replace(/<h3>/g, '<h3 class="">')
-		.replace(/<strong>/g, '<strong class="not-prose dark:text-gray-100">')
-		.replace(/<p>/g, '<p>')
-		.replace(/<ul>/g, '<ul class="pl-5">')
-		.replace(/<ol>/g, '<ol class="pl-5 mb-4">');
+		`;
+	html = format + html;
+	return (
+		html
+			.replace(/<h1>/g, '<h2 class="">')
+			.replace(/<h2>/g, '<h2 class="">')
+			.replace(/<h3>/g, '<h3 class="">')
+			.replace(/<strong>/g, '<strong class="not-prose dark:text-gray-100">')
+			.replace(/<p>/g, "<p>")
+			.replace(/<ul>/g, '<ul class="pl-5">')
+			.replace(/<ol>/g, '<ol class="pl-5 mb-4">')
+			// insight banner
+			.replace(
+				/insight-banner/g,
+				"border-l-4 border-primary bg-purple-500/10 rounded-r-md px-5 py-4 my-3",
+			)
+			.replace(
+				/insight-header/g,
+				"block text-primary font-mono text-md tracking-widest uppercase mb-1",
+			)
+			.replace(/insight-text/g, "<text-md text-[#38195b] tracking-wide")
+			// code
+			.replace(
+				/code/g,
+				"inline-block bg-purple-500/10 text-primary border border-primary/50 py-1 px-2 rounded font-mono text-xs tracking-wide",
+			)
+	);
 }

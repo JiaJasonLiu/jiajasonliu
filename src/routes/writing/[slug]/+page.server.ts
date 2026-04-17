@@ -9,11 +9,11 @@ export async function load({ params }) {
 		if (!post) {
 			throw error(404, "Post not found");
 		}
-		const file = await import(`../../assets/project/rl_agents.html?raw`).then(
-			(m) => m.default,
-		);
+		const file = await import(
+			`../../assets/writing/${post.slug}.html?raw`
+		).then((m) => m.default);
+		// add meta data to website
 		post.content = convertToTailwind(file);
-		// console.log('Post content loaded:', post);
 		return {
 			post,
 		};

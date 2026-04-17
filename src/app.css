@@ -1,2 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
 @import "tailwindcss";
 @plugin '@tailwindcss/typography';
+
+
+@theme {
+  --color-primary: #7851A9;
+  --color-secondary: #71717a;
+
+  --color-primary-dark: #4C1D95;
+
+  --font-lora: "Lora", serif;
+}
+
+/* @layer base { */
+/*   html { */
+/*     font-family: 'Lora', serif; */
+/*   } */
+/* } */

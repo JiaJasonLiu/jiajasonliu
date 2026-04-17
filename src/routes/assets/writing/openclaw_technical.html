@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <img src="/writing/openclaw_technical.png" aria-label="OpenClaw Technical AI Generated Image"/>
+    <h2>My AI Agents</h2>
+    <p>
+      At the beginning of this AI hype and the introduction of OpenClaw, it flooded my news. Initially, I didn't see the purpose of it. However, I soon saw companies starting to improve AI abilities for downstream tasks (e.g., coding and summarizing notes), showing a shift from general machine learning algorithm improvements to specific AI use cases.
+    </p>
+    <h2>The Setup</h2>
+    <p>
+      For security reasons—such as preventing OpenClaw from accidentally deleting my files or committing secrets to GitHub—I pulled the git repo and ran it in a Docker container. The setup to use an API key was relatively simple. I created a Telegram account and connected to it; it was a strange experience being able to text my AI agent (which I named <span class="highlight">Aura</span>) about what I wanted it to do. The beauty of Telegram is that it fully supports bots and groups of them, so I could have multiple agents with different responsibilities at my fingertips.
+    </p>
+    <p>
+      After playing around with it, I realized that an agent is essentially just a gateway between an AI (the brain) and a terminal (the hands and feet). It is the body that connects the brain to the world to perform tasks based on user information.
+    </p>
+
+    <div class="insight-banner">
+      <strong class="insight-header">Key Insight</strong>
+      <span class="insight-text">
+        An agent = gateway between AI (brain) + terminal (hands and feet). It connects thinking to action.
+      </span>
+    </div>
+
+    <p>
+      I spent two days understanding its inner workings, from its "Heartbeats" to its memory. The token usage was initially insane, so I stripped everything it didn't need. For instance, I removed the Heartbeat, which consumed tokens every 30 minutes, and restricted its ability to control the gateway itself (e.g. changing its own config).
+    </p>
+    <p>
+      I also added an Ollama container to my setup so I could use local models like Qwen Coder and Llama 3.1. While it could handle simple chats, it was still too slow and inefficient at tool calls. Eventually, I chose to use Google API keys, as they offer a generous free tier for models with reasonable throttling.
+    </p>
+
+    <h2>The Essence of the Playbook</h2>
+    <p>
+      The essence of this model is its ability to have memory and its own workspace. I used this to create multiple agents with respective workspaces, identities, and purposes.
+    </p>
+    <p>
+      I initially kept the <span class="highlight">AGENTS.md</span> files as empty as possible, containing only their names and purposes. When they do something unexpected, I update these files so they don't repeat the mistake. I call these files their "Playbook"—the rules they must abide by. As I improve my prompting, the agents' behavior becomes much more predictable.
+    </p>
+
+    <h2>The Reality Check: Security & Stability</h2>
+    <p>
+      The truth is that even though you are offloading thinking to an AI, you still spend mental effort wondering how the AI is performing.
+    </p>
+    <p>
+      On the technical side, 
+      <span class="code">
+        CVE-2026-25253
+      </span>
+        (WebSocket hijacking) shows that any new tech has issues. We should wait for them to become stable before full adoption. In the meantime, always run them in a Docker container for safety. Furthermore, these repos get updated almost every hour; things break if you pull the most recent changes. I recommend choosing a stable tag and making a branch off of that.
+    </p>
+
+    <h2>Future Plan</h2>
+    <p>
+      I was planning on building an agent myself, but OpenClaw has become such a "beast" that it's more efficient to tweak existing code. I plan on exploring other repos like PicoClaw (Golang) for speed and efficiency. Big companies like Nvidia and Claude will likely start making their own OpenClaw replicas soon.
+    </p>
+    <p>
+      This is only the beginning of gateways where AI can control your devices. So, I look forward to seeing how these develop in the future.
+    </p>
+</body>
+</html>
