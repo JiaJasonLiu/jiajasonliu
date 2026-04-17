@@ -4,7 +4,7 @@ import {convertToTailwind} from '$lib/utils.js'
 
 export async function load({ params}) {
 	try {
-		let post = posts.find((post) => post.slug === params.slug);
+		const post = posts.find((post) => post.slug === params.slug);
 
 		if (!post) {
 			throw error(404, 'Post not found');
