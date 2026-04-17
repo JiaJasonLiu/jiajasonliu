@@ -11,8 +11,7 @@ export function convertToTailwind(html: string): string {
 					margin-bottom: 1rem;
 					}
 				h2 {
-					margin-top: 2rem;
-					margin-bottom: 1rem;
+					margin-top: 1rem;
 				}
 				h3 {
 					margin-bottom: 1rem;
