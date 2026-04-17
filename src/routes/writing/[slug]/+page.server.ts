@@ -1,23 +1,24 @@
-import { error } from '@sveltejs/kit';
-import { posts } from '../data.js';
-import {convertToTailwind} from '$lib/utils.js'
+import { error } from "@sveltejs/kit";
+import { posts } from "../data.js";
+import { convertToTailwind } from "$lib/utils.js";
 
-export async function load({ params}) {
+export async function load({ params }) {
 	try {
 		const post = posts.find((post) => post.slug === params.slug);
 
 		if (!post) {
-			throw error(404, 'Post not found');
+			throw error(404, "Post not found");
 		}
-		const file = await import(`../../assets/writing/${post.slug}.html?raw`)
-		.then(m => m.default);
+		const file = await import(
+			`../../assets/writing/${post.slug}.html?raw`
+		).then((m) => m.default);
 		// add meta data to website
 		post.content = convertToTailwind(file);
 		return {
-			post
+			post,
 		};
 	} catch (err) {
-		console.error('Error loading HTML file:', err);
-		throw error(500, 'Failed to load HTML file');
+		console.error("Error loading HTML file:", err);
+		throw error(500, "Failed to load HTML file");
 	}
 }

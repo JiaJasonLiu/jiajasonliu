@@ -1,7 +1,7 @@
 <script lang="ts">
-    import type { BlogPost } from '../../../types/blog';
-    export let data: {post: BlogPost };
-    const {post} = data;
+import type { BlogPost } from "../../../types/blog";
+export let data: { post: BlogPost };
+const { post } = data;
 </script>
 
 <div class="container max-w-4xl mx-auto pb-15">

@@ -1,6 +1,6 @@
 <script lang="ts">
-    let { data } = $props();
-    const posts = data.resultsPosts;
+let { data } = $props();
+const posts = data.resultsPosts;
 </script>
 
 <div class="container max-w-6xl mx-auto">

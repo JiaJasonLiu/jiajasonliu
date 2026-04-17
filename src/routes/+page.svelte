@@ -1,20 +1,20 @@
 <script>
-  import Card from '$lib/components/Card.svelte';
+import Card from "$lib/components/Card.svelte";
 
-  const intros = [
-    {
-      title: "Identity",
-      value: "Jia Sheng Liu"
-    },
-    {
-      title: "Position",
-      value: "Software Engineer, Sparklayer B2B"
-    },
-    {
-      title: "Location",
-      value: "Bath, United Kingdom"
-    }
-  ]
+const intros = [
+	{
+		title: "Identity",
+		value: "Jia Sheng Liu",
+	},
+	{
+		title: "Position",
+		value: "Software Engineer, Sparklayer B2B",
+	},
+	{
+		title: "Location",
+		value: "Bath, United Kingdom",
+	},
+];
 </script>
 <main>
   <!-- Hero Section -->

@@ -1,25 +1,22 @@
 <script>
-  import "../app.css";
-  import { slide, fade } from 'svelte/transition';
-  import { page } from '$app/state';
-  
-  let { children } = $props();
-  let showNav = $state(false);
-  let currentPage = $state(0);
-  const pages = ['', 'project', 'writing', 'about'];
-  
-  $effect(() => {
-    if (!showNav) {
-      setTimeout(
-        () => {
-          showNav = true;
-        },
-        200
-      );
-    }
-  
-    currentPage = pages.indexOf(page.url.pathname.split('/')[1]);
-  });
+import "../app.css";
+import { slide, fade } from "svelte/transition";
+import { page } from "$app/state";
+
+let { children } = $props();
+let showNav = $state(false);
+let currentPage = $state(0);
+const pages = ["", "project", "writing", "about"];
+
+$effect(() => {
+	if (!showNav) {
+		setTimeout(() => {
+			showNav = true;
+		}, 200);
+	}
+
+	currentPage = pages.indexOf(page.url.pathname.split("/")[1]);
+});
 </script>
 
 {#if showNav}

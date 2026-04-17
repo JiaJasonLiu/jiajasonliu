@@ -1,6 +1,6 @@
 <script lang="ts">
-    let { data } = $props();
-    const posts = data.posts;
+let { data } = $props();
+const posts = data.posts;
 </script>
 
 

@@ -1,4 +1,4 @@
-import { posts } from './data.js';
+import { posts } from "./data.js";
 
 export function load() {
 	return {
@@ -11,7 +11,6 @@ export function load() {
 			link: post.link,
 			tags: post.tags,
 			content: post.content,
-
-		}))
+		})),
 	};
 }
