@@ -28,7 +28,7 @@ const intros = [
       </h2>
     </div>
   </section>
-  <div class="grid grid-cols-3 -translate-y-15 gap-x-12">
+  <div class="grid grid-cols-1 sm:grid-cols-3 sm:-translate-y-15 gap-x-12">
     <div></div>
     <div class="px-10 text-center border border-purple-100 bg-white items-center py-8 rounded-lg shadow-2xl shadow-indigo-500/30">
         <h2 class="font-montserrat mb-4 text-xl text-primary tracking-[0.5rem] uppercase">
@@ -48,8 +48,8 @@ const intros = [
         {/each}
     </div>
     </div>
-  <section id="welcome" class="w-full grid grid-cols-3 gap-x-12 mb-10 -translate-y-13">
-      <div class="flex flex-col gap-6 -translate-y-35">
+  <section id="welcome" class="w-full grid grid-cols-1 sm:grid-cols-3 gap-x-12 sm:mb-10 sm:-translate-y-13">
+      <div class="flex flex-col gap-6 sm:-translate-y-35">
         <Card title="JSHandBook">
           <p>
             Everything I wish someone had told me earlier — documented, so I don't forget again.
@@ -61,7 +61,7 @@ const intros = [
           </p>
         </Card>
       </div>
-      <div class="flex flex-col gap-6 translate-y-4">
+      <div class="flex flex-col gap-6 sm:translate-y-4">
         <Card title="This Site">
           <p>
             A personal corner of the internet — built with SvelteKit, Tailwind, and stubbornness.
@@ -73,7 +73,7 @@ const intros = [
           </p>
         </Card>
       </div>
-      <div class="flex flex-col gap-6 -translate-y-20">
+      <div class="flex flex-col gap-6 sm:-translate-y-20">
         <Card title="Master the Highway Environment">
           <p>
             Reinforcement Learning Agents try to traverse a Highway Environment. Can it/they do it?

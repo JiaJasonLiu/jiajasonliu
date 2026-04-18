@@ -1,5 +1,7 @@
 <script lang="ts">
-export let title: string;
+import type { Snippet } from "svelte";
+
+let { title, children }: { title: string; children: Snippet } = $props();
 </script>
 
 <div
@@ -9,6 +11,6 @@ export let title: string;
      {title}
    </h2>
   <p>
-    <slot />
+  {@render children()}
   </p>
 </div>
