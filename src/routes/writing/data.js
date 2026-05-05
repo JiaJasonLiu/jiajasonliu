@@ -22,4 +22,11 @@ export const posts = [
 		date: "April 17, 2026",
 		content: "",
 	},
+	{
+		slug: "ultimate_goals",
+		title: "My Ultimate Life Goal",
+		synopsis: "A holiday forced me to stop and think — what do I actually want from life? Turns out, the answer was simpler than I expected.",
+		date: "May 5, 2026",
+		content: "",
+	},
 ];
