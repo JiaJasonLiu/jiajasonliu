@@ -1,4 +1,6 @@
-export const posts = [
+import type { BlogPost } from "../../types/blog";
+
+export const posts: BlogPost[] = [
 	{
 		slug: "welcome",
 		title: "Welcome to my first blog post",
@@ -11,7 +13,6 @@ export const posts = [
 		title: "JSHandbook 1st Edition",
 		synopsis: "Everything I have learned throughout the years.",
 		date: "July 03, 2023",
-		star: true,
 		content: "",
 	},
 	{
@@ -25,7 +26,8 @@ export const posts = [
 	{
 		slug: "ultimate_goals",
 		title: "My Ultimate Life Goal",
-		synopsis: "A holiday forced me to stop and think — what do I actually want from life? Turns out, the answer was simpler than I expected.",
+		synopsis:
+			"A holiday forced me to stop and think — what do I actually want from life? Turns out, the answer was simpler than I expected.",
 		date: "May 5, 2026",
 		content: "",
 	},
