@@ -7,18 +7,18 @@ const intros = [
 		value: "Jia Sheng Liu",
 	},
 	{
-		title: "Position",
-		value: "Software Engineer, Sparklayer B2B",
+		title: "Role",
+		value: "Software Engineer",
 	},
 	{
 		title: "Location",
-		value: "Bath, United Kingdom",
+		value: "Bath, UK",
 	},
 ];
 </script>
 <main>
   <!-- Hero Section -->
-  <section id="hero" class="border border-purple-100 py-52">
+  <section id="hero" class="border border-purple-100 rounded-lg py-52">
     <div class="max-w-7xl mx-auto flex flex-col justify-between items-center">
       <h1 class="text-6xl text-center font-lora text-primary dark:text-gray-300 italic">
         Step into <br/> <span class="font-bold not-italic">Dream Amethyst</span>
@@ -28,71 +28,47 @@ const intros = [
       </h2>
     </div>
   </section>
-  <div class="grid grid-cols-3 -translate-y-15 gap-x-12">
-    <div></div>
-    <div class="px-10 text-center border border-purple-100 bg-white items-center py-8 rounded-lg shadow-2xl shadow-indigo-500/30">
-        <h2 class="font-montserrat mb-4 text-xl text-primary tracking-[0.5rem] uppercase">
-          CREATOR
+  <section id="welcome" class="grid lg:grid-cols-3 gap-12 mt-6 lg:mt-0">
+  <!-- Left Column -->
+    <div class="flex flex-col gap-6 lg:translate-y-20">
+      <Card title="JSHandBook" description="Everything I wish someone had told me earlier — documented, so I don't forget again."/>
+      <Card title="Highway RL" description="Taught reinforcement learning agents to navigate traffic. Spoiler: they learned faster than some drivers."/>
+    </div>
+    <!-- Middle with Personal Details Card -->
+      <div class="lg:-translate-y-27 px-6 text-left border border-purple-100 bg-white items-center py-8 rounded-lg shadow-2xl shadow-indigo-500/30 max-h-fit">
+        <h2 class="text-center font-montserrat text-4xl text-primary py-4 font-bold tracking-[0.5rem] uppercase">
+          INTRO
         </h2>
-        {#each intros as intro}
-          <div class="gap-2">
-            <div class="border-t py-2 border-purple-200">
-              <h3 class="text-[#947ba8] uppercase font-montserrat">
-                {intro.title}
-              </h3>
-              <span class="text-sm font-lora font-semibold text-gray-800">
-                {intro.value}
+        <div class="flex flex-col gap-5">
+          {#each intros as intro}
+          <div class="flex flex-col border-t space-y-2 border-indigo-800/10">
+            <h3 class="mt-4 text-md text-secondary tracking-wider uppercase font-bold font-lora whitespace-nowrap">
+              {intro.title}
+            </h3>
+            <span class="text-xl font-lora font-bold tracking-wide text-gray-800">
+              {intro.value}
             </span>
-            </div>
           </div>
-        {/each}
-    </div>
-    </div>
-  <section id="welcome" class="w-full grid grid-cols-3 gap-x-12 mb-10 -translate-y-13">
-      <div class="flex flex-col gap-6 -translate-y-35">
-        <Card title="JSHandBook">
-          <p>
-            Everything I wish someone had told me earlier — documented, so I don't forget again.
-          </p>
-        </Card>
-        <Card title="Highway RL">
-          <p>
-            Taught reinforcement learning agents to navigate traffic. Spoiler: they learned faster than some drivers.
-          </p>
-        </Card>
+          {/each}
+          <span class="border-t border-indigo-800/10 pt-8 text-xl font-lora font-bold tracking-wide text-gray-700 text-center">
+            This is my personal corner of the internet — built with SvelteKit, Tailwind, and stubbornness.
+          </span>
+        </div>
       </div>
-      <div class="flex flex-col gap-6 translate-y-4">
-        <Card title="This Site">
-          <p>
-            A personal corner of the internet — built with SvelteKit, Tailwind, and stubbornness.
-          </p>
-        </Card>
-        <Card title="Soccer">
-          <p>
-            Playing the beautiful game whenever I can. The pitch is where I switch off.
-          </p>
-        </Card>
+    <!-- Right Column -->
+    <div class="flex flex-col gap-6 lg:translate-y-10">
+        <Card title="Master the Highway Environment" description={"Reinforcement Learning Agents try to traverse a Highway Environment. Can it/they do it?"}/>
+        <Card title="Currently Reading" description={'Who Moved My Cheese — "The quicker you let go of old cheese, the sooner you find new cheese."'}/>
+        <Card title="Soccer" description="Playing the beautiful game whenever I can. The pitch is where I switch off."/>
       </div>
-      <div class="flex flex-col gap-6 -translate-y-20">
-        <Card title="Master the Highway Environment">
-          <p>
-            Reinforcement Learning Agents try to traverse a Highway Environment. Can it/they do it?
-          </p>
-        </Card>
-        <Card title="Currently Reading">
-          <p>
-            Who Moved My Cheese — "The quicker you let go of old cheese, the sooner you find new cheese."
-          </p>
-        </Card>
-      </div>
-  </section>
+    </section>
   <!-- Experience Section -->
   <section id="experience">      
     <h2 class="text-3xl font-bold mb-8 text-start text-gray-900 dark:text-white">Experiences</h2>
-      <div class="space-y-8 group bg-white dark:bg-gray-700 p-6 rounded-lg shadow-2xl shadow-indigo-500/50">
+      <div class="space-y-8 group bg-white dark:bg-gray-700 p-3 rounded-lg border border-indigo-800/50">
         <!-- Experience items will go here -->
           <!-- TODO: add New Sparklayer Experience -->
-          <!-- TODO: add Germany Experience -->
+          <!-- TODO: add Germany Experience with Machine Learning -->
         <div class="px-2 py-4">
           <span class="flex items-center justify-between">
             <h3 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white">SparkLayer B2B</h3>
