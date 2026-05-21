@@ -5,10 +5,15 @@
 
 
 @theme {
-  --color-primary: #7851A9;
-  --color-secondary: #71717a;
+  --color-primary: #7A5FA8;
+  --color-secondary: #52525b;
 
-  --color-primary-dark: #4C1D95;
+  --color-primary-dark: #4E3880;
+
+  --color-accent: #8E7AAA;      /* muted lavender */
+  --color-surface: #F4F2F7;     /* faint purple-tinted white */
+  --color-muted: #C4BBCF;       /* soft dusty purple */
+  --color-neutral: #E8E5ED;     /* light neutral purple-grey */
 
   --font-lora: "Lora", serif;
 }

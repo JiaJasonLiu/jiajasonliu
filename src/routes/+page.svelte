@@ -18,12 +18,12 @@ const intros = [
 </script>
 <main>
   <!-- Hero Section -->
-  <section id="hero" class="border border-purple-100 rounded-lg py-52">
+  <section id="hero" class="border border-primary rounded-lg py-52">
     <div class="max-w-7xl mx-auto flex flex-col justify-between items-center">
-      <h1 class="text-6xl text-center font-lora text-primary dark:text-gray-300 italic">
-        Step into <br/> <span class="font-bold not-italic">Dream Amethyst</span>
+      <h1 class="text-7xl text-center font-lora text-primary dark:text-gray-300 italic">
+        Step into <span class="font-bold not-italic">Dream Amethyst</span>
       </h1>
-      <h2 class="mt-6 w-3/4 text-xl text-center text-secondary dark:text-gray-400">
+      <h2 class="mt-6 w-3/4 text-xl text-center text-accent dark:text-gray-400">
         a space for ideas, dreams, and unexpected adventures. Step in, explore, and see where it takes you.
       </h2>
     </div>
@@ -35,22 +35,22 @@ const intros = [
       <Card title="Highway RL" description="Taught reinforcement learning agents to navigate traffic. Spoiler: they learned faster than some drivers."/>
     </div>
     <!-- Middle with Personal Details Card -->
-      <div class="lg:-translate-y-27 px-6 text-left border border-purple-100 bg-white items-center py-8 rounded-lg shadow-2xl shadow-indigo-500/30 max-h-fit">
+      <div class="lg:-translate-y-27 px-6 text-left bg-white items-center py-8 rounded-lg border border-primary max-h-fit">
         <h2 class="text-center font-montserrat text-4xl text-primary py-4 font-bold tracking-[0.5rem] uppercase">
           INTRO
         </h2>
         <div class="flex flex-col gap-5">
           {#each intros as intro}
-          <div class="flex flex-col border-t space-y-2 border-indigo-800/10">
-            <h3 class="mt-4 text-md text-secondary tracking-wider uppercase font-bold font-lora whitespace-nowrap">
+          <div class="flex flex-col border-t space-y-2 border-primary">
+            <h3 class="mt-4 text-md text-muted tracking-wider uppercase font-bold font-lora whitespace-nowrap">
               {intro.title}
             </h3>
-            <span class="text-xl font-lora font-bold tracking-wide text-gray-800">
+            <span class="text-xl font-lora font-bold tracking-wide text-primary">
               {intro.value}
             </span>
           </div>
           {/each}
-          <span class="border-t border-indigo-800/10 pt-8 text-xl font-lora font-bold tracking-wide text-gray-700 text-center">
+          <span class="border-t border-primary pt-8 text-xl font-lora font-bold tracking-wide text-accent text-center">
             This is my personal corner of the internet — built with SvelteKit, Tailwind, and stubbornness.
           </span>
         </div>

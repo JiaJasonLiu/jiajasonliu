@@ -1,8 +1,7 @@
 <script lang="ts">
-    import Page from "$lib/components/Page.svelte";
+import Page from "$lib/components/Page.svelte";
 
-    let { data } = $props();
-
+let { data } = $props();
 </script>
 
 <Page title="Writing" description="I write about software design, developer experience, and the tech industry, and I share the latest on my projects and major updates.">
