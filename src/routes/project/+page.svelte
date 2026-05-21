@@ -1,12 +1,10 @@
 <script lang="ts">
+import Page from "$lib/components/Page.svelte";
 let { data } = $props();
 const posts = data.posts;
 </script>
 
-
-<div class="max-w-6xl mx-auto">
-    <h1 class="text-4xl font-bold mb-3 dark:text-gray-300">Projects</h1>
-        <h2 class="text-xl font-light mb-8">I write about software design, developer experience, and the tech industry, and I share the latest on my projects and major updates.</h2>
+<Page title="Projects" description="I write about software design, developer experience, and the tech industry, and I share the latest on my projects and major updates.">
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {#each posts as post}
         <div class="bg-white dark:bg-gray-800 shadow-2xl shadow-indigo-500/50 rounded-lg overflow-hidden group hover:shadow-xl transition-shadow duration-300">
@@ -43,4 +41,4 @@ const posts = data.posts;
         </div>
         {/each}
     </div>
-</div>  
+</Page>
