@@ -7,4 +7,5 @@ export type BlogPost = {
 	content: string;
 	excerpt?: string;
 	tags?: string[];
+	star?: boolean;
 };
