@@ -62,30 +62,27 @@ const intros = [
         <Card title="Soccer" description="Playing the beautiful game whenever I can. The pitch is where I switch off."/>
       </div>
     </section>
-  <!-- Experience Section -->
-  <section id="experience">      
-    <h2 class="text-3xl font-bold mb-8 text-start text-gray-900 dark:text-white">Experiences</h2>
-      <div class="space-y-8 group bg-white dark:bg-gray-700 p-3 rounded-lg border border-indigo-800/50">
-        <!-- Experience items will go here -->
-          <!-- TODO: add New Sparklayer Experience -->
-          <!-- TODO: add Germany Experience with Machine Learning -->
-        <div class="px-2 py-4">
-          <span class="flex items-center justify-between">
-            <h3 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white">SparkLayer B2B</h3>
-            <h3 class="text-l italic mb-2 text-gray-900 dark:text-white"> July 2023 - July 2024</h3>
-          </span>
-          <p class="text-gray-600 dark:text-gray-300">Software Developer Placement Intern</p>
-          <ul class="list-disc list-inside space-y-4 mt-4 text-gray-600 dark:text-gray-300">
-            <!-- could make it into bullet points to discussing my role and achievements -->
-            <li>Developed and maintained full-stack features for the SparkLayer B2B platform using modern web technologies.</li>
-            <li>Created a custom Redis Queue that processes millions of data daily.</li>
-            <li>Collaborated with cross-functional teams to deliver scalable and efficient solutions.</li>
-            <li>Implemented RESTful APIs and integrated third-party services to enhance product capabilities.</li>
-            <li>Improved code quality and performance through code reviews and refactoring.</li>
-            <li>Contributed to UI/UX improvements, ensuring a seamless user experience.</li>
-          </ul>
-        </div>
-    </div>
-  </section>
 </main>
+
+<!-- TODO: add the experience else where and add New Sparklayer and German w/ ML 
+<section id="experience">
+  <h2 class="text-3xl font-bold mb-8 text-start text-gray-900 dark:text-white">Experiences</h2>
+    <div class="space-y-8 group bg-white dark:bg-gray-700 p-3 rounded-lg border border-indigo-800/50">
+      <div class="px-2 py-4">
+        <span class="flex items-center justify-between">
+          <h3 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white">SparkLayer B2B</h3>
+          <h3 class="text-l italic mb-2 text-gray-900 dark:text-white"> July 2023 - July 2024</h3>
+        </span>
+        <p class="text-gray-600 dark:text-gray-300">Software Developer Placement Intern</p>
+        <ul class="list-disc list-inside space-y-4 mt-4 text-gray-600 dark:text-gray-300">
+          <li>Developed and maintained full-stack features for the SparkLayer B2B platform using modern web technologies.</li>
+          <li>Created a custom Redis Queue that processes millions of data daily.</li>
+          <li>Collaborated with cross-functional teams to deliver scalable and efficient solutions.</li>
+          <li>Implemented RESTful APIs and integrated third-party services to enhance product capabilities.</li>
+          <li>Improved code quality and performance through code reviews and refactoring.</li>
+          <li>Contributed to UI/UX improvements, ensuring a seamless user experience.</li>
+        </ul>
+      </div>
+  </div>
+</section> -->
 
