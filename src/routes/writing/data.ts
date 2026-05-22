@@ -39,4 +39,14 @@ export const posts: BlogPost[] = [
 		image: "/writing/ultimate_goal.webp",
 		tags: ["life", "reflection"],
 	},
+	{
+		slug: "vue_types",
+		title: "The Foundation Is the Tool",
+		synopsis:
+			"A Vue compiler error, and the unglamorous truth about why tools become what they are — and stay that way.",
+		date: "May 22, 2026",
+		content: "",
+		image: "/writing/vue_types.webp",
+		tags: ["vue", "engineering"],
+	},
 ];
