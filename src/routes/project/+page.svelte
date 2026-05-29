@@ -7,7 +7,7 @@ const posts = data.posts;
 <Page title="Projects" description="I write about software design, developer experience, and the tech industry, and I share the latest on my projects and major updates.">
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {#each posts as post}
-        <div class="bg-white dark:bg-gray-800 shadow-2xl shadow-indigo-500/50 rounded-lg overflow-hidden group hover:shadow-xl transition-shadow duration-300">
+        <div class="bg-white dark:bg-gray-800 rounded-lg overflow-hidden group shadow-lg">
             <div class="relative h-48 overflow-hidden">
                 <img
                     src="{post.image}" 

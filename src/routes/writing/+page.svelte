@@ -7,7 +7,7 @@ let { data } = $props();
 <Page title="Writing" description="I write about software design, developer experience, and the tech industry, and I share the latest on my projects and major updates.">
     <div class="grid gap-8">
         {#each data.formattedPosts as post}
-            <article class="bg-white h-82 gap-6 dark:bg-gray-800 shadow-2xl grid sm:grid-cols-2 shadow-indigo-500/50 rounded-lg overflow-hidden hover:shadow-xl group transition-shadow duration-300">
+            <article class="bg-white h-82 gap-6 dark:bg-gray-800 shadow-lg grid sm:grid-cols-2 rounded-lg overflow-hidden">
                 <div class="py-20 pl-10 flex flex-wrap flex-col gap-2">
                     <time class="text-xs text-gray-600 dark:text-gray-300">{post.date}</time>
                     <div>
