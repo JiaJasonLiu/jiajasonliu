@@ -25,12 +25,16 @@ export function convertToTailwind(html: string): string {
 					font-size: 18px;
 					padding: 2rem;
 				}
+				pre, blockquote {
+					margin-bottom: 1rem;
+					margin-top: 0;
+				}
 				p {		
 					font-family: 'Inter', serif;
-					line-height: 2;
+					line-height: 1.7;
 					font-size: 18px;
 					margin-top: 0;
-					margin-bottom: 0.5rem;
+					margin-bottom: 1.5rem;
 				}
 				table {
 					width: 100%;
@@ -65,7 +69,7 @@ export function convertToTailwind(html: string): string {
 			// insight banner
 			.replace(
 				/insight-banner/g,
-				"border-l-4 border-primary bg-purple-500/10 rounded-r-md px-5 py-4 my-3",
+				"border-l-4 border-primary bg-purple-500/10 rounded-r-md px-5 py-2",
 			)
 			.replace(
 				/insight-header/g,
@@ -75,7 +79,7 @@ export function convertToTailwind(html: string): string {
 			// code
 			.replace(
 				/code/g,
-				"inline-block bg-purple-500/10 text-primary border border-primary/50 py-1 px-2 rounded font-mono text-xs tracking-wide",
+				"inline-block bg-purple-500/10 text-primary border border-primary/50 mb-1 px-2 rounded font-mono text-xs tracking-wide",
 			)
 	);
 }

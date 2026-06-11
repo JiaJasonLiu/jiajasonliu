@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+
+<p>You wrote what looked like ordinary TypeScript inside a <code>&lt;script setup&gt;</code> block. A conditional type, maybe a mapped type over a generic. Vue threw it back at you:</p>
+
+<pre><code>// Component.vue
+defineProps&lt;T extends string
+  ? { foo: string }
+  : { bar: number }&gt;()
+
+✘ Unresolvable type: TSConditionalType</code></pre>
+
+<p>You searched. You found the docs, terse and a little resigned: <em>the type to runtime conversion is still AST-based.</em></p>
+
+<p>If you're new to Vue, you read that sentence and move on. If you've spent any time inside the framework, that sentence is a doorway. Walk through it, and a lot of the things you've been quietly working around start to arrange themselves into a single shape.</p>
+
+<p>This is an essay about that shape. And about why — once you see it — you stop being angry at the error and start being grateful for what it's telling you.</p>
+
+<h2>I. The Misconception</h2>
+
+<h3>It looks like TypeScript. It isn't.</h3>
+
+<p>The first thing to understand about <code>defineProps&lt;T&gt;()</code> is that it is not a function call, and the angle brackets are not, in any meaningful sense, generic parameters to a function. It's a <em>compiler macro</em>. The Vue Single-File Component compiler sees that call, and before any TypeScript checker has gotten near it, walks the AST of whatever you put between those brackets and generates a runtime props object from what it can <em>read</em>.</p>
+
+<p>It doesn't <em>evaluate</em> the type. It reads the shape of the syntax. That distinction is doing all the work in this essay.</p>
+
+<p>An object type literal? Readable. <code>Pick&lt;User, 'id' | 'name'&gt;</code>? Vue's resolver knows that one. A conditional type that has to be <em>computed</em> against an actual value of <code>T</code>? There is nothing to read yet — there is something to <em>run</em>, and the SFC compiler doesn't run types. It looks at them.</p>
+
+<blockquote class="insight-banner insight-text">The Vue team is explicit about this in the docs. It isn't hidden, and it isn't accidental. It's a documented, deliberate boundary.</blockquote>
+
+<h2>II. The Mechanism</h2>
+
+<h3>Every Vue app has <em>two</em> type pipelines.</h3>
+
+<p>This is the load-bearing idea. Once you have it, every weird Vue typing behaviour you've ever fought with — every <code>@vue-ignore</code>, every "why does the editor know this but the build doesn't", every prop that mysteriously degrades to <code>any</code> — rearranges itself.</p>
+
+<p>Pipeline one is the <strong>SFC compiler</strong>. It runs at build, it walks ASTs, and it has a bespoke type resolver that handles a deliberately limited subset of TypeScript. It is fast because it is shallow. It produces the runtime artifact — the actual <code>props: { ... }</code> object that Vue's runtime uses to validate and pass data.</p>
+
+<p>Pipeline two is <strong>Volar</strong> (and <code>vue-tsc</code>). This one uses the real TypeScript compiler. It understands the full type system. It checks your templates against fully-resolved types at every call site. It is what your editor uses when it knows things the build doesn't.</p>
+
+<p>These two pipelines do not share state. They look at the same file and see different things.</p>
+
+<p>Once you internalise that, <code>@vue-ignore</code> stops looking like a hack and starts looking like exactly what it is: a comment that speaks to pipeline one and is invisible to pipeline two. It tells the SFC compiler <em>don't try to read this, I'll handle the runtime declaration separately.</em> Volar keeps enforcing. Your editor still knows. The split is the feature.</p>
+
+<h2>III. The Rule</h2>
+
+<h3>Generics help when <em>shape</em> is invariant.</h3>
+
+<p>Here is the simple rule that falls out of all of this. A generic in <code>&lt;script setup&gt;</code> is fine when the runtime shape of your props is the same for every instantiation, and only the <em>types of values flowing through</em> the props vary.</p>
+
+<pre><code>// One runtime shape. T just decorates the values.
+defineProps&lt;{
+  items: T[]
+  selected: T
+}&gt;()</code></pre>
+
+<p>The compiler can emit one runtime declaration — <code>{ items: Array, selected: null }</code> — that's valid for every conceivable <code>T</code>. The generic decorates the values that pipeline two sees; it doesn't change what pipeline one has to write down.</p>
+
+<p>It breaks the moment the generic decides the shape itself. Whether a prop exists. Whether it's required. Whether the object has three keys or five.</p>
+
+<pre><code>// Two possible shapes. Compiler has to pick one,
+// at component-compile time, before any consumer is known.
+defineProps&lt;T extends 'page'
+  ? { route: string }
+  : { handler: () =&gt; void }&gt;()</code></pre>
+
+<p>The compiler doesn't know what <code>T</code> is yet — and it never will, from inside the component. The call sites that <em>do</em> know are on the consumer side, in other files, compiled later. From the component's vantage point, <code>T</code> is still abstract. There is no shape to write down.</p>
+
+<blockquote class="insight-banner insight-text">"But I know what <code>T</code> is when I use the component." Yes — you do. The compiler doesn't. That asymmetry is the whole thing.</blockquote>
+
+<h2>IV. The Escape Hatches</h2>
+
+<h3>Three workarounds, three trade-offs.</h3>
+
+<p>You have three reasonable options when you hit this. They differ in where the type contract lives, and how strictly each pipeline enforces it.</p>
+
+<table border="1" cellpadding="8">
+  <thead>
+    <tr>
+      <th>Approach</th>
+      <th>Lives in</th>
+      <th>Runtime knows about prop?</th>
+      <th>Enforcement</th>
+      <th>Best for</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Single conditionally-typed prop</td>
+      <td>.vue</td>
+      <td>Yes</td>
+      <td>Type-only; can't forbid presence</td>
+      <td>Minimal restructuring, soft contracts</td>
+    </tr>
+    <tr>
+      <td><code>@vue-ignore</code> on the conditional</td>
+      <td>.vue</td>
+      <td>No — falls to <code>$attrs</code></td>
+      <td>Volar enforces fully</td>
+      <td>Bridge / forwarding components</td>
+    </tr>
+    <tr>
+      <td><code>.ts</code> factory</td>
+      <td>.ts</td>
+      <td>Per-bridge, fully</td>
+      <td>Strongest, per-instance</td>
+      <td>Multiple known cases, clean separation</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Each is right for a different problem. The interesting thing is what they have in common: when the type contract can't live in the <code>.vue</code> file, you push it somewhere the unconstrained type system <em>can</em> handle it. The Vue file becomes a thin runtime; the contract lives at the boundary.</p>
+
+<h2>V. The Larger Thing</h2>
+
+<h3>The Vue team didn't fail.</h3>
+
+<p>They made a choice. Early — before this problem existed in anyone's head — to keep the SFC compiler small, fast, and AST-based. That choice bought Vue something real: sub-second compile times, a tractable codebase, predictable behaviour, a story for tooling. It cost something equally real: the thing you just hit.</p>
+
+<p>You cannot have both. No tool can.</p>
+
+<p>A few months ago I read <a href="https://notes.mtb.xyz/p/your-data-model-is-your-destiny">an essay called "Your Data Model Is Your Destiny."</a> It sat in my head for a while before I understood why. The argument is that the early shape of a tool — its data model, its compiler architecture, its first abstraction — is the part that turns out to be hardest to change. Not because changing it is technically impossible, but because by the time the cost of the original choice is visible, the ecosystem around the tool has grown to depend on it. Every consumer is a vote for the status quo.</p>
+
+<blockquote>Tools differentiate themselves not by being more advanced. They differentiate by the <em>idea</em> at their centre.</blockquote>
+
+<p>The idea at the centre of Vue is: single-file components as the unit of work, runtime props as a first-class concept, templates that get compiled cheaply, and a compiler small enough that you can ship it everywhere. Everything else — every API, every limitation, every <em>character trait</em> of Vue — falls out of that.</p>
+
+<p>The fact that you can't write a conditional type as your top-level props shape isn't a bug. It's a downstream consequence of choosing to compile props from <em>syntax</em>, not <em>semantics</em>. That choice is also why your Vue build is fast, why the runtime is small, why HMR works the way it does, why the framework is portable to environments where running a full TypeScript checker would be absurd.</p>
+
+<p>You don't get to pick the consequences à la carte. The foundation chooses them for you.</p>
+
+<h2>VI. The Principle</h2>
+
+<h3>First ideas are permanent.</h3>
+
+<p>The thing that makes a tool what it is — its first idea — is also the thing it cannot stop being. The earlier a choice was made in a project's life, the more of the project's identity is wrapped up in that choice. This goes well past frameworks. Languages, companies, products, institutions: the only ways a foundation actually changes are that the people change, or the project ends.</p>
+
+<p>Vue's compiler is AST-based. React's reconciler is a tree diff. Svelte's whole pitch is compile-away-the-runtime. Rails picks convention. Django picks explicitness. Postgres picks correctness; Redis picks speed. These aren't features that got bolted on. They are the first ideas, and they radiate outward into everything those tools can and cannot do.</p>
+
+<p>The skill — and I think this is the actual skill, more than any particular framework fluency — isn't picking the most advanced tool. It's recognising the <em>kind</em> of tool you are working with, what its foundation lets it do, and what its foundation will never let it do. Working with the grain instead of against it. Knowing when to push a problem up to a layer where the foundation no longer constrains you, and being willing to do so.</p>
+
+<p>When you hit <code>Unresolvable type: TSConditionalType</code>, you are not hitting a bug. You are touching the load-bearing wall of the framework you chose. The right move is to step back and ask: <em>is this still the right tool for this part of the problem?</em></p>
+
+<p>Sometimes the answer is yes, with a <code>@vue-ignore</code>. Sometimes it's <em>this contract belongs in a <code>.ts</code> file, not a <code>.vue</code> file.</em> Sometimes — rarely — it's <em>this whole concern doesn't belong in this framework at all.</em></p>
+
+<p>The error is telling you something true. The framework is being honest about what it is. The only question is whether you're going to listen, or keep trying to make it be something it was never built to be.</p>
+
+</body>
+</html>

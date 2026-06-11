@@ -2,7 +2,7 @@ import { error } from "@sveltejs/kit";
 import { posts } from "../data.js";
 import { convertToTailwind } from "$lib/utils.js";
 
-export async function load({ params }) {
+export async function load({ params }: { params: any }) {
 	try {
 		const post = posts.find((post) => post.slug === params.slug);
 
