@@ -39,4 +39,12 @@ export const posts: BlogPost[] = [
 		date: "June 11, 2026",
 		content: "",
 	},
+	{
+		slug: "raspberry_pi_ideas",
+		title: "I Have a Raspberry Pi and No Excuse Not to Use It",
+		synopsis:
+			"I've had a Raspberry Pi 4 in a drawer for a year. I finally sat down and figured out what to actually run on it — Pi-hole, self-hosted services, a k3s node, and a few agentic experiments.",
+		date: "June 11, 2026",
+		content: "",
+	},
 ];
