@@ -31,4 +31,12 @@ export const posts: BlogPost[] = [
 		date: "May 5, 2026",
 		content: "",
 	},
+	{
+		slug: "vibe_coded_phone",
+		title: "I Vibe Coded a Website From My Phone (Because I Was Bored)",
+		synopsis:
+			"I was bored, found a site that gives you things to do, and instead of doing any of them — I built one. From my phone. No laptop, no IDE, just Claude and a notes app.",
+		date: "June 11, 2026",
+		content: "",
+	},
 ];
