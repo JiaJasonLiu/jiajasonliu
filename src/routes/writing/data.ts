@@ -49,20 +49,12 @@ export const posts: BlogPost[] = [
 		image: "/writing/vue_types.webp",
 		tags: ["vue", "engineering"],
 	},
-	{
-		slug: "vibe_coded_phone",
-		title: "I Vibe Coded a Website From My Phone (Because I Was Bored)",
-		synopsis:
-			"I was bored, found a site that gives you things to do, and instead of doing any of them — I built one. From my phone. No laptop, no IDE, just Claude and a notes app.",
-		date: "June 11, 2026",
-		content: "",
-	},
-	{
-		slug: "raspberry_pi_ideas",
-		title: "I Have a Raspberry Pi and No Excuse Not to Use It",
-		synopsis:
-			"I've had a Raspberry Pi 4 in a drawer for a year. I finally sat down and figured out what to actually run on it — Pi-hole, self-hosted services, a k3s node, and a few agentic experiments.",
-		date: "June 11, 2026",
-		content: "",
-	},
+	// {
+	// 	slug: "vibe_coded_phone",
+	// 	title: "I Vibe Coded a Website From My Phone (Because I Was Bored)",
+	// 	synopsis:
+	// 		"I was bored, found a site that gives you things to do, and instead of doing any of them — I built one. From my phone. No laptop, no IDE, just Claude and a notes app.",
+	// 	date: "June 11, 2026",
+	// 	content: "",
+	// },
 ];

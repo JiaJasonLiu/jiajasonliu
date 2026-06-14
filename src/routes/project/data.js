@@ -12,15 +12,4 @@ export const posts = [
 		link: "https://github.com/JiaJasonLiu/RL_Highway",
 		content: "",
 	},
-	// {
-	// 	slug: 'new',
-	// 	title: 'New Project Incoming',
-	// 	synopsis: 'New',
-	// 	date: 'JULY 21, 2025',
-	// 	tags: ['Incoming'],
-	// 	// image: '/projects/rl_agents.gif',
-	// 	star: false,
-	// 	content:
-	// 		''
-	// },
 ];
