@@ -1,10 +1,18 @@
 <script lang="ts">
-import Page from "$lib/components/Page.svelte";
+import Artboard from "$lib/components/Artboard.svelte";
+import Hero from "$lib/components/Hero.svelte";
 
 let { data } = $props();
 </script>
 
-<Page title="Writing" description="I write about software design, developer experience, and the tech industry, and I share the latest on my projects and major updates.">
+<Artboard variant="rose">
+    <Hero
+      variant="rose"
+      kicker="Notes to Myself, in Public"
+      lead="Writing &"
+      em="reflections"
+      subtitle="On engineering, learning, and the occasional life detour. Written mostly so I don't forget."
+    />
     <div class="grid gap-8">
         {#each data.formattedPosts as post}
             <article class="bg-white h-82 gap-6 shadow-lg grid sm:grid-cols-2 rounded-lg overflow-hidden">
@@ -32,4 +40,4 @@ let { data } = $props();
             </article>
         {/each}
     </div>
-</Page>
+</Artboard>

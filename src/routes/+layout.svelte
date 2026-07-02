@@ -40,7 +40,7 @@ $effect(() => {
 {/if}
 
 {#if showNav}
-<main in:fade={{duration:1500, delay:1200}} class={currentPage === 0 ? "" : "pt-24 pb-16"}>
+<main in:fade={{duration:1500, delay:1200}}>
   {#if currentPage === 0}
     {@render children()}
   {:else}
@@ -74,7 +74,7 @@ $effect(() => {
     </div>
   </div>
   <div class="overflow-hidden pointer-events-none select-none relative">
-    <p class="font-lora text-[12vw] font-bold italic text-primary opacity-40 hover:opacity-40 transition-opacity duration-700 ease-in-out text-center whitespace-nowrap"
+    <p class="font-lora text-[12vw] font-bold italic text-primary opacity-40 hover:opacity-40 transition-opacity duration-700 ease-in-out text-center whitespace-nowrap leading-[1.35] pb-[0.1em]"
        style="mask-image: linear-gradient(to bottom, black 0%, transparent 100%); -webkit-mask-image: linear-gradient(to bottom, black 0%, transparent 100%);">
       Dream Amethyst
     </p>

@@ -1,4 +1,6 @@
 <script>
+import { parallax } from "$lib/actions/parallax";
+import Blob from "$lib/components/Blob.svelte";
 import Card from "$lib/components/Card.svelte";
 
 const introRows = [
@@ -6,48 +8,6 @@ const introRows = [
 	{ label: "Role", value: "Software Engineer" },
 	{ label: "Location", value: "Bath, UK" },
 ];
-
-// Cursor parallax over the hero artboard. Each [data-depth] wrapper is
-// translated by mouseOffset * depth * 26px; the inner blob keeps its own
-// drift animation, so the two transforms compose instead of fighting.
-/** @param {HTMLElement} node */
-function parallax(node) {
-	const reduce =
-		typeof window !== "undefined" &&
-		window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
-	if (reduce) return;
-
-	/** @param {MouseEvent} e */
-	const move = (e) => {
-		const r = node.getBoundingClientRect();
-		const mx = (e.clientX - r.left) / r.width - 0.5;
-		const my = (e.clientY - r.top) / r.height - 0.5;
-		const layers = /** @type {NodeListOf<HTMLElement>} */ (
-			node.querySelectorAll("[data-depth]")
-		);
-		for (const el of layers) {
-			const d = Number.parseFloat(el.dataset.depth ?? "1") || 1;
-			el.style.transform = `translate(${mx * d * 26}px, ${my * d * 26}px)`;
-		}
-	};
-	const leave = () => {
-		const layers = /** @type {NodeListOf<HTMLElement>} */ (
-			node.querySelectorAll("[data-depth]")
-		);
-		for (const el of layers) {
-			el.style.transform = "translate(0, 0)";
-		}
-	};
-
-	node.addEventListener("mousemove", move);
-	node.addEventListener("mouseleave", leave);
-	return {
-		destroy() {
-			node.removeEventListener("mousemove", move);
-			node.removeEventListener("mouseleave", leave);
-		},
-	};
-}
 </script>
 
 <div>
@@ -56,19 +16,10 @@ function parallax(node) {
   style="position:relative;overflow:hidden;width:100%;margin:0 auto;background:linear-gradient(180deg,#faf8fd 0%,#f1eaf9 34%,#f7f3fc 52%,#ffffff 68%);"
 >
   <!-- Aurora blobs: outer wrapper = parallax target, inner = drifting light -->
-  <div data-depth="1" style="position:absolute;top:-40px;left:18%;width:400px;height:400px;pointer-events:none;">
-    <div style="width:100%;height:100%;border-radius:50%;filter:blur(22px);background:radial-gradient(circle,rgba(158,120,214,.5),transparent 68%);animation:auroraDrift 15s ease-in-out infinite;"></div>
-  </div>
-  <div data-depth="1.6" style="position:absolute;top:30px;right:18%;width:400px;height:400px;pointer-events:none;">
-    <div style="width:100%;height:100%;border-radius:50%;filter:blur(24px);background:radial-gradient(circle,rgba(196,164,232,.48),transparent 66%);animation:auroraDrift2 19s ease-in-out infinite;"></div>
-  </div>
-  <div data-depth="2.2" style="position:absolute;top:480px;left:calc(50% - 320px);width:640px;height:460px;pointer-events:none;">
-    <div style="width:100%;height:100%;border-radius:50%;filter:blur(34px);background:radial-gradient(circle,rgba(158,120,214,.28),transparent 66%);animation:auroraDrift 24s ease-in-out infinite;"></div>
-  </div>
-
-  <div data-depth="2.2" style="position:absolute;top:480px;left:calc(20% - 320px);width:640px;height:460px;pointer-events:none;">
-    <div style="width:100%;height:100%;border-radius:50%;filter:blur(34px);background:radial-gradient(circle,rgba(158,120,214,.28),transparent 66%);animation:auroraDrift 24s ease-in-out infinite;"></div>
-  </div>
+  <Blob color="amethyst" depth={1} top="-40px" left="18%" size={400} blur={22} opacity={0.5} fade={68} drift={1} duration={15} />
+  <Blob color="lavender" depth={1.6} top="30px" right="18%" size={400} blur={24} opacity={0.48} fade={66} drift={2} duration={19} />
+  <Blob color="amethyst" depth={2.2} top="480px" left="calc(50% - 320px)" width={640} height={460} blur={34} opacity={0.28} fade={66} drift={1} duration={24} />
+  <Blob color="amethyst" depth={2.2} top="480px" left="calc(20% - 320px)" width={640} height={460} blur={34} opacity={0.28} fade={66} drift={1} duration={24} />
   <div>
     <!-- Hero -->
     <div style="max-width:760px;margin:0 auto;text-align:center;padding:220px 40px 0;">

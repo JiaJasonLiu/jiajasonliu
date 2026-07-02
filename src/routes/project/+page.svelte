@@ -1,10 +1,19 @@
 <script lang="ts">
-import Page from "$lib/components/Page.svelte";
+import Artboard from "$lib/components/Artboard.svelte";
+import Hero from "$lib/components/Hero.svelte";
 let { data } = $props();
 const posts = data.posts;
 </script>
 
-<Page title="Projects" description="I write about software design, developer experience, and the tech industry, and I share the latest on my projects and major updates.">
+<Artboard variant="blue">
+    <Hero
+      variant="blue"
+      kicker="Things I've Built"
+      lead="Projects &"
+      em="experiments"
+      subtitle="Where curiosity turns into code. A growing collection — starting with the one that taught cars to drive themselves."
+      stacked
+    />
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {#each posts as post}
         <div class="bg-white rounded-lg overflow-hidden group shadow-lg">
@@ -41,4 +50,4 @@ const posts = data.posts;
         </div>
         {/each}
     </div>
-</Page>
+</Artboard>
