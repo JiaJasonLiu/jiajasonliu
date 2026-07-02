@@ -19,7 +19,7 @@ $effect(() => {
 });
 </script>
 
-{#if showNav}
+{#if showNav && currentPage !== 0}
 <header class="fixed top-0 left-0 right-0 bg-white/10 dark:bg-gray-900/80 backdrop-blur-sm z-50 border-b border-gray-200 dark:border-gray-700">
   <nav in:slide={{axis:'y', duration:800, delay:1000}} out:slide={{duration:150}} class="max-w-8xl mx-auto px-8 py-4">
     <div class="flex items-center justify-between">
@@ -40,12 +40,18 @@ $effect(() => {
 {/if}
 
 {#if showNav}
-<main in:fade={{duration:1500, delay:1200}} class="pt-24 pb-16">
-  <div class="container mx-auto ">
-  {@render children()}
-  </div>
+<main in:fade={{duration:1500, delay:1200}} class={currentPage === 0 ? "" : "pt-24 pb-16"}>
+  {#if currentPage === 0}
+    {@render children()}
+  {:else}
+    <div class="container mx-auto ">
+    {@render children()}
+    </div>
+  {/if}
 </main>
+{/if}
 
+{#if showNav && currentPage !== 0}
 <footer in:fade={{duration:1500, delay:1400}} class="border-t border-gray-200 dark:border-gray-700 mx-8 py-10 mt-8">
   <div class="flex mx-8 justify-between items-center">
     <span class="text-muted font-mono text-xs">© {new Date().getFullYear()} Jia Jason Liu</span>

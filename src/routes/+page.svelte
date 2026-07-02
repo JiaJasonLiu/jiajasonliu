@@ -1,88 +1,262 @@
 <script>
 import Card from "$lib/components/Card.svelte";
 
-const intros = [
-	{
-		title: "Identity",
-		value: "Jia Sheng Liu",
-	},
-	{
-		title: "Role",
-		value: "Software Engineer",
-	},
-	{
-		title: "Location",
-		value: "Bath, UK",
-	},
+const introRows = [
+	{ label: "Identity", value: "Jia Sheng Liu" },
+	{ label: "Role", value: "Software Engineer" },
+	{ label: "Location", value: "Bath, UK" },
 ];
+
+// Cursor parallax over the hero artboard. Each [data-depth] wrapper is
+// translated by mouseOffset * depth * 26px; the inner blob keeps its own
+// drift animation, so the two transforms compose instead of fighting.
+/** @param {HTMLElement} node */
+function parallax(node) {
+	const reduce =
+		typeof window !== "undefined" &&
+		window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+	if (reduce) return;
+
+	/** @param {MouseEvent} e */
+	const move = (e) => {
+		const r = node.getBoundingClientRect();
+		const mx = (e.clientX - r.left) / r.width - 0.5;
+		const my = (e.clientY - r.top) / r.height - 0.5;
+		const layers = /** @type {NodeListOf<HTMLElement>} */ (
+			node.querySelectorAll("[data-depth]")
+		);
+		for (const el of layers) {
+			const d = Number.parseFloat(el.dataset.depth ?? "1") || 1;
+			el.style.transform = `translate(${mx * d * 26}px, ${my * d * 26}px)`;
+		}
+	};
+	const leave = () => {
+		const layers = /** @type {NodeListOf<HTMLElement>} */ (
+			node.querySelectorAll("[data-depth]")
+		);
+		for (const el of layers) {
+			el.style.transform = "translate(0, 0)";
+		}
+	};
+
+	node.addEventListener("mousemove", move);
+	node.addEventListener("mouseleave", leave);
+	return {
+		destroy() {
+			node.removeEventListener("mousemove", move);
+			node.removeEventListener("mouseleave", leave);
+		},
+	};
+}
 </script>
-<main>
-  <!-- Hero Section -->
-  <section id="hero" class="border border-primary rounded-lg py-52">
-    <div class="max-w-7xl mx-auto flex flex-col justify-between items-center">
-      <h1 class="text-7xl text-center font-lora text-primary dark:text-gray-300 italic">
-        Step into <span class="font-bold not-italic">Dream Amethyst</span>
-      </h1>
-      <h2 class="mt-6 w-3/4 text-xl text-center text-accent dark:text-gray-400">
-        a space for ideas, dreams, and unexpected adventures. Step in, explore, and see where it takes you.
-      </h2>
-    </div>
-  </section>
-  <section id="welcome" class="grid lg:grid-cols-3 gap-12 mt-6 lg:mt-0">
-  <!-- Left Column -->
-    <div class="flex flex-col gap-6 lg:translate-y-20">
-      <Card title="JSHandBook" description="Everything I wish someone had told me earlier — documented, so I don't forget again."/>
-      <Card title="Highway RL" description="Taught reinforcement learning agents to navigate traffic. Spoiler: they learned faster than some drivers."/>
-    </div>
-    <!-- Middle with Personal Details Card -->
-      <div class="lg:-translate-y-27 px-6 text-left bg-white items-center py-8 rounded-lg border border-primary max-h-fit">
-        <h2 class="text-center font-montserrat text-4xl text-primary py-4 font-bold tracking-[0.5rem] uppercase">
-          INTRO
-        </h2>
-        <div class="flex flex-col gap-5">
-          {#each intros as intro}
-          <div class="flex flex-col border-t space-y-2 border-primary">
-            <h3 class="mt-4 text-md text-muted tracking-wider uppercase font-bold font-lora whitespace-nowrap">
-              {intro.title}
-            </h3>
-            <span class="text-xl font-lora font-bold tracking-wide text-primary">
-              {intro.value}
-            </span>
-          </div>
-          {/each}
-          <span class="border-t border-primary pt-8 text-xl font-lora font-bold tracking-wide text-accent text-center">
-            This is my personal corner of the internet — built with SvelteKit, Tailwind, and stubbornness.
-          </span>
-        </div>
-      </div>
-    <!-- Right Column -->
-    <div class="flex flex-col gap-6 lg:translate-y-10">
-        <Card title="Master the Highway Environment" description={"Reinforcement Learning Agents try to traverse a Highway Environment. Can it/they do it?"}/>
-        <Card title="Currently Reading" description={'Who Moved My Cheese — "The quicker you let go of old cheese, the sooner you find new cheese."'}/>
-        <Card title="Soccer" description="Playing the beautiful game whenever I can. The pitch is where I switch off."/>
-      </div>
-    </section>
-</main>
 
-<!-- TODO: add the experience else where and add New Sparklayer and German w/ ML 
-<section id="experience">
-  <h2 class="text-3xl font-bold mb-8 text-start text-gray-900 dark:text-white">Experiences</h2>
-    <div class="space-y-8 group bg-white dark:bg-gray-700 p-3 rounded-lg border border-indigo-800/50">
-      <div class="px-2 py-4">
-        <span class="flex items-center justify-between">
-          <h3 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white">SparkLayer B2B</h3>
-          <h3 class="text-l italic mb-2 text-gray-900 dark:text-white"> July 2023 - July 2024</h3>
-        </span>
-        <p class="text-gray-600 dark:text-gray-300">Software Developer Placement Intern</p>
-        <ul class="list-disc list-inside space-y-4 mt-4 text-gray-600 dark:text-gray-300">
-          <li>Developed and maintained full-stack features for the SparkLayer B2B platform using modern web technologies.</li>
-          <li>Created a custom Redis Queue that processes millions of data daily.</li>
-          <li>Collaborated with cross-functional teams to deliver scalable and efficient solutions.</li>
-          <li>Implemented RESTful APIs and integrated third-party services to enhance product capabilities.</li>
-          <li>Improved code quality and performance through code reviews and refactoring.</li>
-          <li>Contributed to UI/UX improvements, ensuring a seamless user experience.</li>
-        </ul>
-      </div>
+<div class="page-canvas">
+<div
+  class="artboard"
+  use:parallax
+  style="position:relative;overflow:hidden;width:100%;max-width:1180px;margin:0 auto;border-radius:22px;border:1px solid #e2dced;box-shadow:0 30px 70px -30px rgba(51,41,74,.45);background:linear-gradient(180deg,#faf8fd 0%,#f1eaf9 34%,#f7f3fc 52%,#ffffff 68%);"
+>
+  <!-- Aurora blobs: outer wrapper = parallax target, inner = drifting light -->
+  <div data-depth="1" style="position:absolute;top:-40px;left:18%;width:400px;height:400px;pointer-events:none;">
+    <div style="width:100%;height:100%;border-radius:50%;filter:blur(22px);background:radial-gradient(circle,rgba(158,120,214,.5),transparent 68%);animation:auroraDrift 15s ease-in-out infinite;"></div>
   </div>
-</section> -->
+  <div data-depth="1.6" style="position:absolute;top:30px;right:18%;width:400px;height:400px;pointer-events:none;">
+    <div style="width:100%;height:100%;border-radius:50%;filter:blur(24px);background:radial-gradient(circle,rgba(196,164,232,.48),transparent 66%);animation:auroraDrift2 19s ease-in-out infinite;"></div>
+  </div>
+  <div data-depth="2.2" style="position:absolute;top:480px;left:calc(50% - 320px);width:640px;height:460px;pointer-events:none;">
+    <div style="width:100%;height:100%;border-radius:50%;filter:blur(34px);background:radial-gradient(circle,rgba(158,120,214,.28),transparent 66%);animation:auroraDrift 24s ease-in-out infinite;"></div>
+  </div>
 
+  <div style="position:relative;z-index:5;">
+    <!-- Nav: transparent, sits directly over the aurora -->
+    <nav style="display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;padding:18px 44px;">
+      <a href="/" class="wordmark" style="display:flex;align-items:center;gap:2px;font-family:var(--font-mono);font-size:19px;color:#4E3880;text-decoration:none;">
+        <img src="/logo.png" alt="Jia Jason Liu" style="width:26px;height:26px;border-radius:50%;object-fit:cover;" />
+        <span style="font-weight:500;margin-left:-2px;">ason Liu</span>
+      </a>
+      <div style="display:flex;gap:26px;font-family:var(--font-mono);font-size:17px;">
+        <a class="nav-link" href="/project">Projects</a>
+        <a class="nav-link" href="/writing">Writing</a>
+        <a class="nav-link" href="/about">About</a>
+      </div>
+    </nav>
+
+    <!-- Hero -->
+    <div style="max-width:760px;margin:0 auto;text-align:center;padding:78px 40px 0;">
+      <div class="rise" style="font-family:var(--font-mono);font-size:12px;letter-spacing:.34em;text-transform:uppercase;color:#7A5FA8;margin-bottom:24px;">
+        Jia Jason Liu · Software Engineer · Bath, UK
+      </div>
+      <h1 class="rise hero-title" style="font-family:var(--font-lora);font-style:italic;line-height:1.02;color:#4E3880;margin:0;letter-spacing:-1px;animation-delay:.16s;">
+        Step into<br />
+        <span class="sheen" style="font-weight:700;font-style:normal;">Dream Amethyst</span>
+      </h1>
+      <p class="rise" style="font-size:19px;line-height:1.6;color:#8E7AAA;max-width:500px;margin:26px auto 0;animation-delay:.32s;">
+        A space for ideas, dreams, and unexpected adventures. Step in, explore, and see where it takes you.
+      </p>
+      <div class="rise" style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:34px;animation-delay:.48s;">
+        <a class="pill pill--filled" href="/project">View Projects</a>
+        <a class="pill pill--outline" href="/writing">Read Writing</a>
+      </div>
+    </div>
+
+    <!-- Transition: thin line → eyebrow that bridges hero into the grid -->
+    <div style="display:flex;flex-direction:column;align-items:center;gap:14px;margin-top:52px;">
+      <span style="width:1px;height:46px;background:linear-gradient(180deg,transparent,rgba(122,95,168,.5));"></span>
+      <span style="font-family:var(--font-mono);font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:rgba(122,95,168,.6);">
+        Wandering the corners
+      </span>
+    </div>
+
+    <!-- Card grid -->
+    <div style="padding:30px 44px 46px;">
+      <div class="grid-a">
+        <Card kicker="Writing" title="JSHandBook" href="/writing" description="Everything I wish someone had told me earlier — documented, so I don't forget again." />
+
+        <!-- Intro panel: purple gradient, spans two rows, anchors the middle -->
+        <div class="intro" style="position:relative;overflow:hidden;border-radius:18px;padding:26px 24px;background:linear-gradient(165deg,#7A5FA8,#4E3880);box-shadow:0 26px 50px -18px rgba(78,56,128,.55);display:flex;flex-direction:column;justify-content:center;">
+          <h2 style="text-align:center;font-family:var(--font-montserrat);font-size:26px;font-weight:700;color:#fff;letter-spacing:.4rem;text-transform:uppercase;margin:0 0 22px;">
+            Intro
+          </h2>
+          <div style="display:flex;flex-direction:column;gap:15px;">
+            {#each introRows as row}
+              <div style="border-top:1px solid rgba(255,255,255,.25);padding-top:11px;">
+                <div style="font-family:var(--font-mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.6);">{row.label}</div>
+                <div style="font-family:var(--font-lora);font-size:19px;font-weight:700;color:#fff;margin-top:3px;">{row.value}</div>
+              </div>
+            {/each}
+            <div style="border-top:1px solid rgba(255,255,255,.25);padding-top:13px;font-family:var(--font-lora);font-style:italic;font-size:15px;line-height:1.5;color:rgba(255,255,255,.85);text-align:center;">
+              Built with SvelteKit, Tailwind, and stubbornness.
+            </div>
+          </div>
+        </div>
+
+        <Card kicker="Project" title="Highway RL" href="/project" description="Taught RL agents to navigate traffic. They learned faster than some drivers." />
+        <Card kicker="Engineering" title="AI Agents · Aura" description="A personal AI agent on OpenClaw, in Docker, controlled from Telegram." />
+        <Card kicker="Experience" title="SparkLayer B2B" description="Placement intern — built a Redis queue processing millions of records daily." />
+      </div>
+
+      <div class="grid-b">
+        <Card kicker="Reading" title="Currently Reading" description="Who Moved My Cheese — let go of old cheese sooner, find new cheese sooner." />
+        <Card kicker="Reflection" title="The Foundation Is the Tool" href="/writing" description="A Vue compiler error, and the truth about why tools become what they are." />
+        <Card kicker="Life" title="Soccer" description="Playing the beautiful game whenever I can. The pitch is where I switch off." />
+      </div>
+
+      <!-- Footer wordmark -->
+      <div style="overflow:hidden;margin-top:58px;">
+        <p class="footer-wordmark" style="font-family:var(--font-lora);font-style:italic;font-weight:700;text-align:center;color:#7A5FA8;opacity:.3;white-space:nowrap;-webkit-mask-image:linear-gradient(to bottom,black 0%,transparent 100%);mask-image:linear-gradient(to bottom,black 0%,transparent 100%);">
+          Dream Amethyst
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<style>
+  .page-canvas {
+    min-height: 100vh;
+    padding: 40px 24px 56px;
+    background: linear-gradient(180deg, #edeaf2 0%, #e9e3f2 100%);
+  }
+  @media (max-width: 620px) {
+    .page-canvas {
+      padding: 20px 12px 32px;
+    }
+  }
+
+  /* Shimmering wordmark on "Dream Amethyst" */
+  .sheen {
+    background: linear-gradient(100deg, #7a5fa8, #b18bd6, #7a5fa8);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    animation: sheen 6s linear infinite;
+  }
+
+  .hero-title {
+    font-size: clamp(44px, 8vw, 80px);
+  }
+  .footer-wordmark {
+    font-size: clamp(46px, 12vw, 116px);
+    margin: 0 0 -0.3em;
+  }
+
+  /* Nav links */
+  .nav-link {
+    color: rgba(78, 56, 128, 0.55);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  .nav-link:hover {
+    color: #4e3880;
+  }
+  .wordmark:hover {
+    color: #7a5fa8;
+  }
+
+  /* Hero pills */
+  .pill {
+    font-family: var(--font-mono);
+    font-size: 14px;
+    padding: 13px 26px;
+    border-radius: 999px;
+    cursor: pointer;
+    text-decoration: none;
+    transition:
+      background 0.3s,
+      color 0.3s;
+  }
+  .pill--filled {
+    color: #fff;
+    background: #7a5fa8;
+    box-shadow: 0 12px 26px -10px rgba(122, 95, 168, 0.7);
+  }
+  .pill--filled:hover {
+    background: #4e3880;
+  }
+  .pill--outline {
+    color: #7a5fa8;
+    border: 1px solid rgba(122, 95, 168, 0.45);
+  }
+  .pill--outline:hover {
+    background: rgba(122, 95, 168, 0.08);
+  }
+
+  /* Symmetric grid — Intro panel spans two rows on the middle column */
+  .grid-a,
+  .grid-b {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px;
+    align-items: stretch;
+  }
+  .grid-b {
+    margin-top: 24px;
+  }
+  .intro {
+    grid-row: span 2;
+  }
+
+  @media (max-width: 900px) {
+    .grid-a,
+    .grid-b {
+      grid-template-columns: 1fr 1fr;
+    }
+    /* Intro drops its two-row span and becomes a full-width tile */
+    .intro {
+      grid-row: auto;
+      grid-column: span 2;
+    }
+  }
+  @media (max-width: 620px) {
+    .grid-a,
+    .grid-b {
+      grid-template-columns: 1fr;
+    }
+    .intro {
+      grid-column: auto;
+    }
+  }
+</style>

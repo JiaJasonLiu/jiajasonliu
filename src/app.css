@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Montserrat:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
 
 @import "tailwindcss";
 @plugin '@tailwindcss/typography';
@@ -15,5 +15,40 @@
   --color-muted: #C4BBCF;       /* soft dusty purple */
   --color-neutral: #E8E5ED;     /* light neutral purple-grey */
 
+  /* "Dream Amethyst" identity — exact 2a values */
+  --color-ink: #33294a;         /* dark serif text */
+  --color-body: #6b6577;        /* body grey */
+
   --font-lora: "Lora", serif;
+  --font-mono: "JetBrains Mono", monospace;
+  --font-montserrat: "Montserrat", sans-serif;
+}
+
+/* ── Aurora "Dream Amethyst" motion (global: referenced from inline styles) ── */
+@keyframes auroraDrift {
+  0%   { transform: translate(0, 0) scale(1); }
+  50%  { transform: translate(40px, -30px) scale(1.12); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+@keyframes auroraDrift2 {
+  0%   { transform: translate(0, 0) scale(1.05); }
+  50%  { transform: translate(-50px, 25px) scale(1); }
+  100% { transform: translate(0, 0) scale(1.05); }
+}
+@keyframes sheen {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+@keyframes riseIn {
+  from { opacity: 0; transform: translateY(26px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.rise { animation: riseIn .9s cubic-bezier(.2, .8, .2, 1) both; }
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  .rise {
+    animation-duration: .001s !important;
+    animation-iteration-count: 1 !important;
+  }
 }
