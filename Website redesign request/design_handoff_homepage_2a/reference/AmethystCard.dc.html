@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<div onMouseEnter="{{ enter }}" onMouseLeave="{{ leave }}" style="{{ containerStyle }}">
+  <div style="{{ glowStyle }}"></div>
+  <div style="{{ kickerStyle }}">{{ kicker }}</div>
+  <h3 style="{{ titleStyle }}">{{ title }}</h3>
+  <p style="{{ descStyle }}">{{ description }}</p>
+  <div style="{{ cueStyle }}">
+    <span style="{{ cueLineStyle }}"></span>
+    <span style="{{ cueTextStyle }}">explore</span>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:360,&quot;height&quot;:180},&quot;title&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Card title&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;description&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;A short supporting description for this card.&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;kicker&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;tone&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;light&quot;,&quot;tint&quot;,&quot;glass&quot;],&quot;default&quot;:&quot;light&quot;,&quot;tsType&quot;:&quot;'light'|'tint'|'glass'&quot;}}">
+class Component extends DCLogic {
+  state = { hovered: false };
+  renderVals() {
+    const h = this.state.hovered;
+    const primary = '#7A5FA8', accent = '#8E7AAA';
+    const tone = this.props.tone || 'light';
+    const glass = tone === 'glass';
+    const tint = tone === 'tint';
+
+    let bg, border, borderH, titleColor, titleColorH, descColor, descColorH, kickerColor, kickerColorH, shadow, shadowH, cueColor;
+    if (glass) {
+      bg = h ? 'rgba(255,255,255,.16)' : 'rgba(255,255,255,.08)';
+      border = '1px solid rgba(255,255,255,.16)'; borderH = '1px solid rgba(255,255,255,.42)';
+      titleColor = '#e9ddfb'; titleColorH = '#ffffff';
+      descColor = 'rgba(233,221,251,.62)'; descColorH = 'rgba(255,255,255,.9)';
+      kickerColor = 'rgba(201,169,240,.7)'; kickerColorH = '#d9c2f5';
+      shadow = '0 1px 3px rgba(0,0,0,.2)'; shadowH = '0 26px 50px -18px rgba(0,0,0,.5)';
+      cueColor = '#d9c2f5';
+    } else if (tint) {
+      bg = h ? 'linear-gradient(160deg,#f3edfb,#eadff8)' : 'linear-gradient(160deg,#f7f3fc,#f1e9fa)';
+      border = '1px solid rgba(122,95,168,.16)'; borderH = '1px solid rgba(122,95,168,.5)';
+      titleColor = accent; titleColorH = primary;
+      descColor = '#a99fba'; descColorH = '#6b6577';
+      kickerColor = 'rgba(122,95,168,.55)'; kickerColorH = primary;
+      shadow = '0 1px 3px rgba(78,56,128,.06)'; shadowH = '0 24px 46px -16px rgba(122,95,168,.4)';
+      cueColor = primary;
+    } else {
+      bg = h ? 'linear-gradient(160deg,#ffffff,#f7f4fb)' : '#ffffff';
+      border = '1px solid rgba(122,95,168,.20)'; borderH = '1px solid rgba(122,95,168,.55)';
+      titleColor = accent; titleColorH = primary;
+      descColor = '#b0a7bd'; descColorH = '#6b6577';
+      kickerColor = 'rgba(122,95,168,.5)'; kickerColorH = primary;
+      shadow = '0 1px 3px rgba(78,56,128,.05)'; shadowH = '0 24px 46px -16px rgba(122,95,168,.42)';
+      cueColor = primary;
+    }
+
+    const containerStyle = {
+      position: 'relative', overflow: 'hidden', backdropFilter: glass ? 'blur(10px)' : 'none',
+      background: bg, border: h ? borderH : border,
+      borderRadius: '18px', padding: '24px 26px', cursor: 'pointer', height: '100%',
+      transition: 'transform .5s cubic-bezier(.2,.8,.2,1), box-shadow .5s, border-color .5s, background .5s',
+      transform: h ? 'translateY(-6px)' : 'translateY(0)',
+      boxShadow: h ? shadowH : shadow,
+    };
+    const glowStyle = {
+      position: 'absolute', top: '-45%', right: '-25%', width: '240px', height: '240px',
+      background: `radial-gradient(circle, ${glass ? 'rgba(201,169,240,.4)' : 'rgba(142,122,170,.32)'}, transparent 70%)`,
+      borderRadius: '50%', opacity: h ? 1 : 0, transition: 'opacity .55s', pointerEvents: 'none',
+    };
+    const kickerStyle = {
+      fontFamily: 'monospace', fontSize: '11px', letterSpacing: '.22em', textTransform: 'uppercase',
+      color: h ? kickerColorH : kickerColor, transition: 'color .4s', marginBottom: '10px', position: 'relative',
+      display: this.props.kicker ? 'block' : 'none',
+    };
+    const titleStyle = {
+      fontFamily: 'Lora, serif', fontSize: '22px', fontWeight: 600, margin: '0 0 8px',
+      letterSpacing: '.2px', lineHeight: 1.2, color: h ? titleColorH : titleColor, transition: 'color .4s', position: 'relative',
+    };
+    const descStyle = {
+      margin: 0, fontSize: '15.5px', lineHeight: 1.6,
+      color: h ? descColorH : descColor, transition: 'color .4s', position: 'relative',
+    };
+    const cueStyle = {
+      display: 'flex', alignItems: 'center', gap: '8px', marginTop: '16px', position: 'relative',
+      opacity: h ? 1 : 0, transform: h ? 'translateY(0)' : 'translateY(6px)', transition: 'opacity .45s, transform .45s',
+    };
+    const cueLineStyle = { width: h ? '26px' : '10px', height: '1px', background: cueColor, transition: 'width .45s' };
+    const cueTextStyle = { fontFamily: 'monospace', fontSize: '11px', letterSpacing: '.18em', textTransform: 'uppercase', color: cueColor };
+    return {
+      title: this.props.title, description: this.props.description, kicker: this.props.kicker,
+      containerStyle, glowStyle, kickerStyle, titleStyle, descStyle, cueStyle, cueLineStyle, cueTextStyle,
+      enter: () => this.setState({ hovered: true }), leave: () => this.setState({ hovered: false }),
+    };
+  }
+}
+</script>
+</body>
+</html>
