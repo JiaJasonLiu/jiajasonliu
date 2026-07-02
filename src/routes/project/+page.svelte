@@ -7,7 +7,7 @@ const posts = data.posts;
 <Page title="Projects" description="I write about software design, developer experience, and the tech industry, and I share the latest on my projects and major updates.">
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {#each posts as post}
-        <div class="bg-white dark:bg-gray-800 rounded-lg overflow-hidden group shadow-lg">
+        <div class="bg-white rounded-lg overflow-hidden group shadow-lg">
             <div class="relative h-48 overflow-hidden">
                 <img
                     src="{post.image}" 
@@ -23,20 +23,20 @@ const posts = data.posts;
                 </div>
             </div>
             <div class="flex flex-col p-6 gap-2">
-                <a href='project/{post.slug}' class="text-xl hover:text-indigo-800 font-medium dark:text-white">{post.title}</a>
-                <p class="text-gray-600 dark:text-gray-300 mb-1">{post.synopsis}</p>
+                <a href='project/{post.slug}' class="text-xl hover:text-indigo-800 font-medium">{post.title}</a>
+                <p class="text-gray-600 mb-1">{post.synopsis}</p>
                 {#if post.tags}
                 <div class="flex gap-2 overflow-auto">
                     {#each post.tags as tag, index}
                     {#if index < 3}
-                        <span class="px-2 py-1 bg-gray-100 dark:bg-gray-200 rounded-full text-sm text-nowrap select-none overflow-hidden">
+                        <span class="px-2 py-1 bg-gray-100 rounded-full text-sm text-nowrap select-none overflow-hidden">
                             {tag}
                         </span>
                     {/if}
                     {/each}
                 </div>
                 {/if}
-                <time class="text-sm text-gray-500 dark:text-gray-400">{post.date}</time>
+                <time class="text-sm text-gray-500">{post.date}</time>
             </div>
         </div>
         {/each}

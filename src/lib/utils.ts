@@ -62,7 +62,7 @@ export function convertToTailwind(html: string): string {
 			.replace(/<h1>/g, '<h2 class="">')
 			.replace(/<h2>/g, '<h2 class="">')
 			.replace(/<h3>/g, '<h3 class="">')
-			.replace(/<strong>/g, '<strong class="not-prose dark:text-gray-100">')
+			.replace(/<strong>/g, '<strong class="not-prose">')
 			.replace(/<p>/g, "<p>")
 			.replace(/<ul>/g, '<ul class="pl-5">')
 			.replace(/<ol>/g, '<ol class="pl-5 mb-4">')

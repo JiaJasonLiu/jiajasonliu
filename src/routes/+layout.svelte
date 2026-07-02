@@ -19,20 +19,20 @@ $effect(() => {
 });
 </script>
 
-{#if showNav && currentPage !== 0}
-<header class="fixed top-0 left-0 right-0 bg-white/10 dark:bg-gray-900/80 backdrop-blur-sm z-50 border-b border-gray-200 dark:border-gray-700">
+{#if showNav}
+<header class="fixed top-0 left-0 right-0 backdrop-blur-sm z-50">
   <nav in:slide={{axis:'y', duration:800, delay:1000}} out:slide={{duration:150}} class="max-w-8xl mx-auto px-8 py-4">
     <div class="flex items-center justify-between">
-      <a href="/" onclick={() => showNav = false} class="flex text-xl font-mono text-gray-900 dark:text-white hover:text-indigo-800">
+      <a href="/" onclick={() => showNav = false} class="flex text-xl font-mono text-gray-900 hover:text-indigo-800">
       <img src="/logo.png" alt="JiaJason's Pic" class="right-0 mt-1 rounded-full size-6 shadow-2xl">
-      <span class={`-ml-1 ${currentPage == 0 ? "text-indigo-800" : "dark:text-gray-300 text-indigo-900/50 hover:text-indigo-800"}`}>
+      <span class={`-ml-1 ${currentPage == 0 ? "text-indigo-800" : " text-indigo-900/50 hover:text-indigo-800"}`}>
         ason Liu
       </span>
       </a>
       <div class="flex gap-6">
-        <a href="/project" onclick={() => showNav = false} class={`text-xl font-mono ${currentPage == 1 ? "text-indigo-800" :"text-indigo-900/50 dark:text-gray-300 hover:text-indigo-800 transition-colors"}`}>Projects</a>
-        <a href="/writing" onclick={() => showNav = false} class={`text-xl font-mono ${currentPage == 2 ? "text-indigo-800" :"text-indigo-900/50 dark:text-gray-300 hover:text-indigo-800 transition-colors"}`}>Writing</a>
-        <a href="/about" onclick={() => showNav = false} class={`text-xl font-mono ${currentPage == 3 ? "text-indigo-800" :"text-indigo-900/50 dark:text-gray-300 hover:text-indigo-800 transition-colors"}`}>About</a>
+        <a href="/project" onclick={() => showNav = false} class={`text-lg font-mono ${currentPage == 1 ? "text-indigo-800" :"text-indigo-900/50 hover:text-indigo-800 transition-colors"}`}>Projects</a>
+        <a href="/writing" onclick={() => showNav = false} class={`text-lg font-mono ${currentPage == 2 ? "text-indigo-800" :"text-indigo-900/50 hover:text-indigo-800 transition-colors"}`}>Writing</a>
+        <a href="/about" onclick={() => showNav = false} class={`text-lg font-mono ${currentPage == 3 ? "text-indigo-800" :"text-indigo-900/50 hover:text-indigo-800 transition-colors"}`}>About</a>
       </div>
     </div>
   </nav>
@@ -51,8 +51,8 @@ $effect(() => {
 </main>
 {/if}
 
-{#if showNav && currentPage !== 0}
-<footer in:fade={{duration:1500, delay:1400}} class="border-t border-gray-200 dark:border-gray-700 mx-8 py-10 mt-8">
+{#if showNav}
+<footer in:fade={{duration:1500, delay:1400}} class="border-t border-gray-200 mx-8 py-10 mt-8">
   <div class="flex mx-8 justify-between items-center">
     <span class="text-muted font-mono text-xs">© {new Date().getFullYear()} Jia Jason Liu</span>
     <div class="flex gap-6">

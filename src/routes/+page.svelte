@@ -50,11 +50,10 @@ function parallax(node) {
 }
 </script>
 
-<div class="page-canvas">
+<div>
 <div
-  class="artboard"
   use:parallax
-  style="position:relative;overflow:hidden;width:100%;max-width:1180px;margin:0 auto;border-radius:22px;border:1px solid #e2dced;box-shadow:0 30px 70px -30px rgba(51,41,74,.45);background:linear-gradient(180deg,#faf8fd 0%,#f1eaf9 34%,#f7f3fc 52%,#ffffff 68%);"
+  style="position:relative;overflow:hidden;width:100%;margin:0 auto;background:linear-gradient(180deg,#faf8fd 0%,#f1eaf9 34%,#f7f3fc 52%,#ffffff 68%);"
 >
   <!-- Aurora blobs: outer wrapper = parallax target, inner = drifting light -->
   <div data-depth="1" style="position:absolute;top:-40px;left:18%;width:400px;height:400px;pointer-events:none;">
@@ -67,24 +66,14 @@ function parallax(node) {
     <div style="width:100%;height:100%;border-radius:50%;filter:blur(34px);background:radial-gradient(circle,rgba(158,120,214,.28),transparent 66%);animation:auroraDrift 24s ease-in-out infinite;"></div>
   </div>
 
-  <div style="position:relative;z-index:5;">
-    <!-- Nav: transparent, sits directly over the aurora -->
-    <nav style="display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;padding:18px 44px;">
-      <a href="/" class="wordmark" style="display:flex;align-items:center;gap:2px;font-family:var(--font-mono);font-size:19px;color:#4E3880;text-decoration:none;">
-        <img src="/logo.png" alt="Jia Jason Liu" style="width:26px;height:26px;border-radius:50%;object-fit:cover;" />
-        <span style="font-weight:500;margin-left:-2px;">ason Liu</span>
-      </a>
-      <div style="display:flex;gap:26px;font-family:var(--font-mono);font-size:17px;">
-        <a class="nav-link" href="/project">Projects</a>
-        <a class="nav-link" href="/writing">Writing</a>
-        <a class="nav-link" href="/about">About</a>
-      </div>
-    </nav>
-
+  <div data-depth="2.2" style="position:absolute;top:480px;left:calc(20% - 320px);width:640px;height:460px;pointer-events:none;">
+    <div style="width:100%;height:100%;border-radius:50%;filter:blur(34px);background:radial-gradient(circle,rgba(158,120,214,.28),transparent 66%);animation:auroraDrift 24s ease-in-out infinite;"></div>
+  </div>
+  <div>
     <!-- Hero -->
-    <div style="max-width:760px;margin:0 auto;text-align:center;padding:78px 40px 0;">
+    <div style="max-width:760px;margin:0 auto;text-align:center;padding:220px 40px 0;">
       <div class="rise" style="font-family:var(--font-mono);font-size:12px;letter-spacing:.34em;text-transform:uppercase;color:#7A5FA8;margin-bottom:24px;">
-        Jia Jason Liu · Software Engineer · Bath, UK
+        Jason Liu · Software Engineer · Bath, UK
       </div>
       <h1 class="rise hero-title" style="font-family:var(--font-lora);font-style:italic;line-height:1.02;color:#4E3880;margin:0;letter-spacing:-1px;animation-delay:.16s;">
         Step into<br />
@@ -140,31 +129,12 @@ function parallax(node) {
         <Card kicker="Reflection" title="The Foundation Is the Tool" href="/writing" description="A Vue compiler error, and the truth about why tools become what they are." />
         <Card kicker="Life" title="Soccer" description="Playing the beautiful game whenever I can. The pitch is where I switch off." />
       </div>
-
-      <!-- Footer wordmark -->
-      <div style="overflow:hidden;margin-top:58px;">
-        <p class="footer-wordmark" style="font-family:var(--font-lora);font-style:italic;font-weight:700;text-align:center;color:#7A5FA8;opacity:.3;white-space:nowrap;-webkit-mask-image:linear-gradient(to bottom,black 0%,transparent 100%);mask-image:linear-gradient(to bottom,black 0%,transparent 100%);">
-          Dream Amethyst
-        </p>
-      </div>
     </div>
   </div>
 </div>
 </div>
 
 <style>
-  .page-canvas {
-    min-height: 100vh;
-    padding: 40px 24px 56px;
-    background: linear-gradient(180deg, #edeaf2 0%, #e9e3f2 100%);
-  }
-  @media (max-width: 620px) {
-    .page-canvas {
-      padding: 20px 12px 32px;
-    }
-  }
-
-  /* Shimmering wordmark on "Dream Amethyst" */
   .sheen {
     background: linear-gradient(100deg, #7a5fa8, #b18bd6, #7a5fa8);
     background-size: 200% auto;
@@ -177,23 +147,6 @@ function parallax(node) {
 
   .hero-title {
     font-size: clamp(44px, 8vw, 80px);
-  }
-  .footer-wordmark {
-    font-size: clamp(46px, 12vw, 116px);
-    margin: 0 0 -0.3em;
-  }
-
-  /* Nav links */
-  .nav-link {
-    color: rgba(78, 56, 128, 0.55);
-    text-decoration: none;
-    transition: color 0.3s;
-  }
-  .nav-link:hover {
-    color: #4e3880;
-  }
-  .wordmark:hover {
-    color: #7a5fa8;
   }
 
   /* Hero pills */
